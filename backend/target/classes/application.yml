@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+app:
+  frontend-base-url: ${FRONTEND_BASE_URL:http://localhost:5173}
+  whatsapp:
+    enabled: ${WHATSAPP_ENABLED:false}
+    phone-number-id: ${WHATSAPP_PHONE_NUMBER_ID:}
+    access-token: ${WHATSAPP_ACCESS_TOKEN:}
+    template-name: ${WHATSAPP_TEMPLATE_NAME:}
+    language-code: ${WHATSAPP_LANGUAGE_CODE:it}
+
+spring:
+  datasource:
+    url: jdbc:sqlite:${SQLITE_DB_PATH:wedding-rsvp.db}
+    driver-class-name: org.sqlite.JDBC
+
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB

@@ -1,0 +1,81 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { api } from "../api/api.js";
+
+export default function InvitePage() {
+  const { token } = useParams();
+  const [guest, setGuest] = useState(null);
+  const [saved, setSaved] = useState(false);
+  const [form, setForm] = useState({
+    status: "CONFERMATO",
+    additionalGuests: 0,
+    allergies: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    api.get(`/invite/${token}`).then((res) => {
+      setGuest(res.data);
+      setForm({
+        status: res.data.status === "RIFIUTATO" ? "RIFIUTATO" : "CONFERMATO",
+        additionalGuests: res.data.additionalGuests ?? 0,
+        allergies: res.data.allergies ?? "",
+        message: res.data.message ?? "",
+      });
+    });
+  }, [token]);
+
+  const submit = async (e) => {
+    e.preventDefault();
+    await api.post(`/invite/${token}/reply`, form);
+    setSaved(true);
+  };
+
+  if (!guest) {
+    return <main className="invite-page"><div className="invite-card">Caricamento...</div></main>;
+  }
+
+  return (
+    <main className="invite-page">
+      <section className="invite-card">
+        <p className="eyebrow">Save the date</p>
+        <h1>Martina & Riccardo</h1>
+        <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
+
+        <div className="event-box">
+          <p><strong>Data:</strong> 18 settembre 2026</p>
+          <p><strong>Luogo:</strong> Tenuta la Gramignana, ore 19:00</p>
+        </div>
+
+        <p className="guest-hi">
+          Ciao {guest.name}, conferma qui la tua presenza.
+        </p>
+
+        {saved && <div className="success">Risposta salvata correttamente.</div>}
+
+        <form onSubmit={submit} className="rsvp-form">
+          <label>Partecipazione</label>
+          <select value={form.status}
+                  onChange={(e) => setForm({ ...form, status: e.target.value })}>
+            <option value="CONFERMATO">Parteciperò</option>
+            <option value="RIFIUTATO">Non potrò partecipare</option>
+          </select>
+
+          <label>Porti qualcuno? faccelo sapere: </label>
+          <input type="number" min="0" value={form.additionalGuests}
+                 onChange={(e) => setForm({ ...form, additionalGuests: Number(e.target.value) })} />
+
+          <label>Allergie o intolleranze</label>
+          <textarea value={form.allergies}
+                    onChange={(e) => setForm({ ...form, allergies: e.target.value })} />
+
+          <label>Messaggio agli sposi</label>
+          <textarea value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })} />
+
+          <button>Invia conferma</button>
+        </form>
+      </section>
+    </main>
+  );
+}

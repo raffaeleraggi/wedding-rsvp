@@ -1,0 +1,15 @@
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\config\CorsConfig.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\controller\AdminController.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\controller\InviteController.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\dto\CreateGuestRequest.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\dto\DashboardStatsDto.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\dto\GuestAdminDto.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\dto\GuestInviteDto.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\dto\GuestReplyRequest.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\entity\GuestEntity.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\entity\RsvpStatus.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\repository\GuestRepository.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\service\GuestPdfService.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\service\GuestService.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\service\WhatsAppService.java
+C:\Users\raffa\OneDrive\Documenti\wedding-rsvp-starter\backend\src\main\java\org\wedding\rsvp\WeddingRsvpApplication.java
