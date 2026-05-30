@@ -15,7 +15,7 @@ public interface GuestRepository extends JpaRepository<GuestEntity, Long> {
 
     long countByWhatsappSentTrue();
 
-    @Query("select coalesce(sum(g.additionalGuests), 0) from GuestEntity g where g.status = org.wedding.rsvp.entity.RsvpStatus.CONFERMATO")
+    @Query("select coalesce(sum(g.additionalGuests), 1) from GuestEntity g where g.status = org.wedding.rsvp.entity.RsvpStatus.CONFERMATO")
     long sumConfirmedPeople();
 
     @Query("select coalesce(sum(g.additionalGuests), 0) from GuestEntity g where g.status = :status")

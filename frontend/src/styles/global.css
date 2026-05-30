@@ -258,7 +258,6 @@ th {
 .invite-image-wrapper {
   margin: -56px -56px 28px;
   overflow: hidden;
-
   border-radius: 36px 36px 0 0;
 }
 
@@ -268,6 +267,7 @@ th {
   object-fit: contain;
   display: block;
   background: #fff8f5;
+  border-radius: 36px 36px 0 0;
 }
 
 
@@ -275,10 +275,12 @@ th {
 
   .invite-image-wrapper {
     margin: -28px -28px 20px;
+    border-radius: 28px 28px 0 0;
   }
 
   .invite-image {
     height: 230px;
+    border-radius: 28px 28px 0 0;
   }
 
   .stats-grid, .two-columns {
