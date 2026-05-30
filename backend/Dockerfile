@@ -1,10 +1,34 @@
-FROM eclipse-temurin:21-jdk AS build
-WORKDIR /app
-COPY . .
-RUN ./mvnw -q -DskipTests package || mvn -q -DskipTests package
+# FRONTEND BUILD
+FROM node:22-alpine AS frontend-build
 
-FROM eclipse-temurin:21-jre
+WORKDIR /frontend
+
+COPY frontend/package*.json ./
+RUN npm install
+
+COPY frontend .
+RUN npm run build
+
+
+# BACKEND BUILD
+FROM maven:3.9.9-eclipse-temurin-21 AS backend-build
+
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+
+COPY backend .
+
+COPY --from=frontend-build /frontend/dist ./src/main/resources/static
+
+RUN mvn -q -DskipTests package
+
+
+# RUNTIME
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+COPY --from=backend-build /app/target/*.jar app.jar
+
 EXPOSE 8080
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
