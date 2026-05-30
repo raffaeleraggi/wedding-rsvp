@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 app:
   frontend-base-url: ${FRONTEND_BASE_URL:http://localhost:5173}
@@ -12,7 +12,7 @@ app:
 
 spring:
   datasource:
-    url: jdbc:sqlite:${SQLITE_DB_PATH}
+    url: jdbc:sqlite:${SQLITE_DB_PATH:wedding-rsvp.db}
     driver-class-name: org.sqlite.JDBC
 
   jpa:
