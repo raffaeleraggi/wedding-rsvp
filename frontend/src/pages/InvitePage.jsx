@@ -49,8 +49,8 @@ export default function InvitePage() {
         <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
 
         <div className="event-box">
-          <p><strong>Data:</strong> 18 settembre 2026</p>
-          <p><strong>Luogo:</strong> Tenuta la Gramignana, Vitorchiano (VT), ore 17:00</p>
+          <p><strong>Data:</strong> 18 settembre 2026, ore 17:00</p>
+          <p><strong>Luogo:</strong> Tenuta la Gramignana, Vitorchiano (VT)</p>
         </div>
 
         <p className="guest-hi">
