@@ -88,7 +88,7 @@ export default function DashboardPage() {
         <StatCard label="Invitati" value={stats?.totalGuests ?? 0} />
         <StatCard label="Confermati" value={stats?.confirmedGuests ?? 0} />
         <StatCard label="In attesa" value={stats?.pendingGuests ?? 0} />
-        <StatCard label="Persone confermate" value={stats?.totalConfirmedPeople ?? 0} />
+        <StatCard label="Persone totali confermate" value={stats?.totalConfirmedPeople ?? 0} />
       </section>
 
       <section className="four-columns">
