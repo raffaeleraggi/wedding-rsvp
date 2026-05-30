@@ -12,7 +12,7 @@ app:
 
 spring:
   datasource:
-    url: jdbc:sqlite:${SQLITE_DB_PATH:wedding-rsvp.db}
+    url: jdbc:sqlite:${SQLITE_DB_PATH}
     driver-class-name: org.sqlite.JDBC
 
   jpa:

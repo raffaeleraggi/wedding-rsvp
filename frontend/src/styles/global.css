@@ -1,7 +1,18 @@
 :root {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #2d201a;
-  background: #f7efe8;
+
+  --blue: #42687a;
+  --blue-dark: #263f4d;
+  --peach: #f4b6a6;
+  --peach-soft: #fff1ec;
+  --cream: #fff8f5;
+  --text: #263f4d;
+  --muted: #6f8490;
+  --border: rgba(66, 104, 122, 0.16);
+  --shadow: 0 18px 50px rgba(38, 63, 77, 0.10);
+
+  color: var(--text);
+  background: var(--cream);
 }
 
 * {
@@ -10,10 +21,14 @@
 
 body {
   margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(244, 182, 166, 0.35), transparent 32%),
+    linear-gradient(135deg, #fff8f5, #eef6f8);
+  color: var(--text);
 }
 
 a {
-  color: #8b5e3c;
+  color: var(--blue);
   font-weight: 700;
 }
 
@@ -21,19 +36,30 @@ button {
   border: 0;
   border-radius: 999px;
   padding: 11px 18px;
-  background: #8b5e3c;
+  background: var(--blue);
   color: white;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
+}
+
+button:hover {
+  background: var(--blue-dark);
 }
 
 input, textarea, select {
   width: 100%;
-  border: 1px solid #e3d4c8;
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 12px 14px;
   background: white;
+  color: var(--text);
   font: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid rgba(244, 182, 166, 0.55);
+  border-color: var(--peach);
 }
 
 textarea {
@@ -47,40 +73,42 @@ textarea {
 }
 
 .hero-panel, .card, .invite-card, .stat-card {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(139, 94, 60, 0.15);
-  box-shadow: 0 18px 50px rgba(74, 45, 26, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .hero-panel {
   border-radius: 32px;
   padding: 36px;
   background:
-    radial-gradient(circle at top right, rgba(213, 174, 129, .35), transparent 35%),
-    rgba(255, 255, 255, .75);
+    radial-gradient(circle at top right, rgba(244, 182, 166, .55), transparent 38%),
+    linear-gradient(135deg, rgba(255,255,255,.92), rgba(238,246,248,.82));
 }
 
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: .18em;
   font-size: 12px;
-  color: #9a6a45;
-  font-weight: 800;
+  color: var(--peach);
+  font-weight: 900;
 }
 
 h1 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(36px, 6vw, 72px);
   margin: 0;
+  color: var(--blue-dark);
 }
 
 h2 {
   font-family: Georgia, "Times New Roman", serif;
   margin-top: 0;
+  color: var(--blue-dark);
 }
 
 .muted {
-  color: #7f6d61;
+  color: var(--muted);
 }
 
 .stats-grid {
@@ -97,11 +125,12 @@ h2 {
 
 .stat-card span {
   display: block;
-  color: #7f6d61;
+  color: var(--muted);
 }
 
 .stat-card strong {
   font-size: 34px;
+  color: var(--blue);
 }
 
 .two-columns {
@@ -133,8 +162,12 @@ table {
 
 th, td {
   padding: 14px;
-  border-bottom: 1px solid #eadfd7;
+  border-bottom: 1px solid rgba(66, 104, 122, 0.12);
   text-align: left;
+}
+
+th {
+  color: var(--blue-dark);
 }
 
 .badge {
@@ -146,19 +179,22 @@ th, td {
   background: #eee;
 }
 
-.badge.confirmed {
-  background: #dff3df;
-  color: #2c6e32;
+.badge.confirmed,
+.badge.confermato {
+  background: #dbe9ee;
+  color: var(--blue-dark);
 }
 
-.badge.declined {
-  background: #f5dedb;
-  color: #8a3429;
+.badge.declined,
+.badge.rifiutato {
+  background: #ffe0d8;
+  color: #9a4d42;
 }
 
-.badge.pending {
-  background: #f4ead4;
-  color: #8b5e3c;
+.badge.pending,
+.badge.in_attesa {
+  background: var(--peach-soft);
+  color: #b06451;
 }
 
 .actions {
@@ -173,8 +209,8 @@ th, td {
   place-items: center;
   padding: 24px;
   background:
-    radial-gradient(circle at top left, rgba(255,255,255,.7), transparent 30%),
-    linear-gradient(135deg, #f6e8dc, #fff7f0);
+    radial-gradient(circle at top left, rgba(244, 182, 166, .45), transparent 32%),
+    linear-gradient(135deg, #fff8f5, #eef6f8);
 }
 
 .invite-card {
@@ -186,20 +222,22 @@ th, td {
 
 .subtitle {
   font-size: 20px;
-  color: #7f6d61;
+  color: var(--muted);
 }
 
 .event-box {
   margin: 28px 0;
   padding: 20px;
   border-radius: 24px;
-  background: #fff8f2;
+  background: var(--peach-soft);
+  border: 1px solid rgba(244, 182, 166, 0.45);
   text-align: left;
 }
 
 .guest-hi {
   font-size: 18px;
   font-weight: 700;
+  color: var(--blue-dark);
 }
 
 .rsvp-form {
@@ -212,8 +250,8 @@ th, td {
   margin: 16px 0;
   padding: 14px;
   border-radius: 16px;
-  background: #dff3df;
-  color: #2c6e32;
+  background: #dbe9ee;
+  color: var(--blue-dark);
   font-weight: 700;
 }
 

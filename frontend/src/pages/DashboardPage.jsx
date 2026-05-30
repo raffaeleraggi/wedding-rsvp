@@ -20,8 +20,12 @@ export default function DashboardPage() {
       api.get("/admin/guests"),
     ]);
     setStats(statsRes.data);
+  if (Array.isArray(guestsRes.data)) {
     setGuests(guestsRes.data);
-  };
+  } else {
+    console.error("Risposta guests non valida:", guestsRes.data);
+    setGuests([]);
+  }  };
 
   useEffect(() => {
     load();
