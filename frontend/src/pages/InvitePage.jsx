@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api.js";
-import headerImage from "../assets/header.jpg";
+import headerImage from "../assets/header.jpeg";
 
 export default function InvitePage() {
   const { token } = useParams();
@@ -43,7 +43,7 @@ export default function InvitePage() {
         <div className="invite-image-wrapper">
           <img src={headerImage} alt="Martina e Riccardo" className="invite-image"/>
         </div>
-        
+
         <p className="eyebrow">Save the date</p>
         <h1>Martina & Riccardo</h1>
         <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
