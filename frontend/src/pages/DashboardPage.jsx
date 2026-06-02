@@ -5,8 +5,6 @@ import StatCard from "../components/StatCard.jsx";
 export default function DashboardPage() {
   const [stats, setStats] = useState(null);
   const [guests, setGuests] = useState([]);
-  const [editing, setEditing] = useState(false);
-  const alreadyAnswered = guest?.status && guest.status !== "IN_ATTESA" && !editing;
   const [form, setForm] = useState({
     name: "",
     surname: "",

@@ -8,6 +8,8 @@ export default function InvitePage() {
   const [guest, setGuest] = useState(null);
   const [showGift, setShowGift] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const alreadyAnswered = guest?.status && guest.status !== "IN_ATTESA" && !editing;
   const [form, setForm] = useState({
     status: "CONFERMATO",
     additionalGuests: 0,
