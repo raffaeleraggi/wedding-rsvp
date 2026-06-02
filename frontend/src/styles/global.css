@@ -370,6 +370,60 @@ th {
   transform: translateY(-1px);
 }
 
+.saved-rsvp-card {
+  margin-top: 20px;
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.95),
+      rgba(244,182,166,.16)
+    );
+
+  border: 1px solid rgba(66,104,122,.12);
+
+  text-align: center;
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.08);
+}
+
+.saved-icon {
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 18px;
+
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: #dce9ef;
+
+  color: #35586b;
+
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.saved-text {
+  color: #70838e;
+}
+
+.saved-status {
+  margin: 18px 0;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #35586b;
+}
+
 
 @media (max-width: 800px) {
 

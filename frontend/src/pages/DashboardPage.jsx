@@ -5,6 +5,8 @@ import StatCard from "../components/StatCard.jsx";
 export default function DashboardPage() {
   const [stats, setStats] = useState(null);
   const [guests, setGuests] = useState([]);
+  const [editing, setEditing] = useState(false);
+  const alreadyAnswered = guest?.status && guest.status !== "IN_ATTESA" && !editing;
   const [form, setForm] = useState({
     name: "",
     surname: "",
@@ -126,7 +128,6 @@ export default function DashboardPage() {
                 <th>Persone aggiuntive</th>
                 <th>Invito</th>
                 <th>WhatsApp</th>
-                <th>Invito inoltrato</th>
               </tr>
             </thead>
 
@@ -142,14 +143,10 @@ export default function DashboardPage() {
                   <td className="actions">
                     {guest.whatsappLink && (
                       <button type="button" onClick={() => window.open(guest.whatsappLink, "_blank")}>
-                        Invio personalizzabile
+                        Invia invito
                       </button>
                      )}
-                    <button type="button" onClick={() => sendWhatsapp(guest.id)}>
-                      Invio automatico
-                    </button>
                   </td>
-                  <td>{guest.whatsappSent ? "Sì" : "No"}</td>
                 </tr>
               ))}
             </tbody>

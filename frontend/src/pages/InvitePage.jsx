@@ -38,96 +38,179 @@ export default function InvitePage() {
   }
 
   return (
-    <main className="invite-page">
-      <section className="invite-card">
+  <main className="invite-page">
+    <section className="invite-card">
 
-        <div className="invite-image-wrapper">
-          <img src={headerImage} alt="Martina e Riccardo" className="invite-image"/>
+      <div className="invite-image-wrapper">
+        <img
+          src={headerImage}
+          alt="Martina e Riccardo"
+          className="invite-image"
+        />
+      </div>
+
+      <p className="eyebrow">Save the date</p>
+      <h1>Martina & Riccardo</h1>
+      <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
+
+      <div className="event-box">
+        <p><strong>Data:</strong> 18 settembre 2026, ore 17:00</p>
+        <p><strong>Luogo:</strong> Tenuta la Gramignana, Vitorchiano (VT)</p>
+
+        <a
+          href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="maps-button"
+        >
+          ✨ Come arrivare
+        </a>
+      </div>
+
+      <p className="guest-hi">
+        Ciao {guest.name}, conferma qui la tua presenza.
+      </p>
+
+      {saved && (
+        <div className="success">
+          Risposta salvata correttamente.
         </div>
+      )}
 
-        <p className="eyebrow">Save the date</p>
-        <h1>Martina & Riccardo</h1>
-        <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
+      {alreadyAnswered ? (
+        <div className="saved-rsvp-card">
 
-        <div className="event-box">
-          <p><strong>Data:</strong> 18 settembre 2026, ore 17:00</p>
-          <p><strong>Luogo:</strong> Tenuta la Gramignana, Vitorchiano (VT)</p>
-          <a href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5" target="_blank" rel="noopener noreferrer" className="maps-button">
-            ✨ Come arrivare
-          </a>
+          <div className="saved-icon">
+            ✓
+          </div>
+
+          <h2>Risposta già registrata</h2>
+
+          <p className="saved-text">
+            Abbiamo già salvato la tua risposta.
+          </p>
+
+          <div className="saved-status">
+            {guest.status === "CONFERMATO"
+              ? "Parteciperai al matrimonio ❤️"
+              : "Non potrai partecipare"}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setForm({
+                status: guest.status,
+                additionalGuests: guest.additionalGuests || 0,
+                allergies: guest.allergies || "",
+                message: guest.message || "",
+              });
+
+              setEditing(true);
+            }}
+          >
+            Modifica risposta
+          </button>
+
         </div>
-
-        <p className="guest-hi">
-          Ciao {guest.name}, conferma qui la tua presenza.
-        </p>
-
-        {saved && <div className="success">Risposta salvata correttamente.</div>}
-
+      ) : (
         <form onSubmit={submit} className="rsvp-form">
+
           <label>Partecipazione</label>
-          <select value={form.status}
-                  onChange={(e) => setForm({ ...form, status: e.target.value })}>
+          <select
+            value={form.status}
+            onChange={(e) => setForm({ ...form, status: e.target.value })}
+          >
             <option value="CONFERMATO">Parteciperò</option>
             <option value="RIFIUTATO">Non potrò partecipare</option>
           </select>
 
-          <label>Porti qualcuno? faccelo sapere: </label>
-          <input type="number" min="0" value={form.additionalGuests}
-                 onChange={(e) => setForm({ ...form, additionalGuests: Number(e.target.value) })} />
+          <label>Porti qualcuno? Faccelo sapere:</label>
+          <input
+            type="number"
+            min="0"
+            value={form.additionalGuests}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                additionalGuests: Number(e.target.value),
+              })
+            }
+          />
 
           <label>Allergie o intolleranze</label>
-          <textarea value={form.allergies}
-                    onChange={(e) => setForm({ ...form, allergies: e.target.value })} />
+          <textarea
+            value={form.allergies}
+            onChange={(e) =>
+              setForm({ ...form, allergies: e.target.value })
+            }
+          />
 
           <label>Messaggio agli sposi</label>
-          <textarea value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })} />
+          <textarea
+            value={form.message}
+            onChange={(e) =>
+              setForm({ ...form, message: e.target.value })
+            }
+          />
 
-          <button>Invia conferma</button>
-
-          <button type="button" className="gift-button" onClick={() => setShowGift(true)}>
-              🎁 Regalo agli sposi
+          <button type="submit">
+            Invia conferma
           </button>
+
         </form>
-        {showGift && (
-  <div className="modal-overlay">
-    <div className="gift-modal">
+      )}
 
       <button
-        className="close-button"
-        onClick={() => setShowGift(false)}
+        type="button"
+        className="gift-button"
+        onClick={() => setShowGift(true)}
       >
-        ×
+        🎁 Regalo agli sposi
       </button>
 
-      <h2>Lista nozze</h2>
+    </section>
 
-      <p>
-        Se desideri farci un regalo,
-        puoi contribuire al nostro viaggio ❤️
-      </p>
+    {showGift && (
+      <div className="modal-overlay">
+        <div className="gift-modal">
 
-      <div className="iban-box">
-        <strong>IBAN</strong>
+          <button
+            type="button"
+            className="close-button"
+            onClick={() => setShowGift(false)}
+          >
+            ×
+          </button>
 
-        <p>IT60X0542811101000000123456</p>
+          <h2>Lista nozze</h2>
 
-        <button
-          type="button"
-          onClick={() => {
-            navigator.clipboard.writeText(
-              "IT60X0542811101000000123456"
-            );
-          }}
-        >
-          Copia IBAN
-        </button>
+          <p>
+            Se desideri farci un regalo,
+            puoi contribuire al nostro viaggio ❤️
+          </p>
+
+          <div className="iban-box">
+            <strong>IBAN</strong>
+
+            <p>IT60X0542811101000000123456</p>
+
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  "IT60X0542811101000000123456"
+                );
+              }}
+            >
+              Copia IBAN
+            </button>
+          </div>
+
+        </div>
       </div>
+    )}
 
-    </div>
-  </div>
-)}
-      </section>
-    </main>
-  );
+  </main>
+);
 }
