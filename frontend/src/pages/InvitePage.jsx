@@ -185,7 +185,7 @@ export default function InvitePage() {
             ×
           </button>
 
-          <h2>Lista nozze</h2>
+          <h2>🎁</h2>
 
           <p>
             Se desideri farci un regalo,

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/api.js";
 import StatCard from "../components/StatCard.jsx";
+import { Trash2 } from "lucide-react";
 
 export default function DashboardPage() {
   const [stats, setStats] = useState(null);
@@ -13,6 +14,19 @@ export default function DashboardPage() {
     additionalPeople: 0,
   });
   const [file, setFile] = useState(null);
+
+  const deleteGuest = async (id, name) => {
+
+  const ok = window.confirm(
+    `Vuoi davvero eliminare ${name}?`
+  );
+
+  if (!ok) return;
+
+  await api.delete(`/admin/guests/${id}`);
+
+  await load();
+};
 
   const load = async () => {
     const [statsRes, guestsRes] = await Promise.all([
@@ -144,6 +158,10 @@ export default function DashboardPage() {
                         Invia invito
                       </button>
                      )}
+                       <button type="button" className="delete-button" onClick={() => 
+                        deleteGuest(guest.id, `${guest.name} ${guest.surname}`)}>
+                          <Trash2 size={18} />
+                      </button>
                   </td>
                 </tr>
               ))}

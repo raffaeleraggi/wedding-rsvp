@@ -424,6 +424,34 @@ th {
   color: #35586b;
 }
 
+.delete-button {
+  background: #f7d8d3;
+  color: #8a3429;
+}
+
+.delete-button:hover {
+  background: #efc1ba;
+}
+
+.icon-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+}
+
+.delete-button {
+  background: #ffe5df;
+  color: #b24d3f;
+}
+
+.delete-button:hover {
+  background: #ffd5cc;
+}
 
 @media (max-width: 800px) {
 
