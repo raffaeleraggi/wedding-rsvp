@@ -53,7 +53,7 @@ export default function InvitePage() {
           <p><strong>Data:</strong> 18 settembre 2026, ore 17:00</p>
           <p><strong>Luogo:</strong> Tenuta la Gramignana, Vitorchiano (VT)</p>
           <a href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5" target="_blank" rel="noopener noreferrer" className="maps-button">
-            📍 Apri navigazione
+            ✨ Come arrivare
           </a>
         </div>
 
