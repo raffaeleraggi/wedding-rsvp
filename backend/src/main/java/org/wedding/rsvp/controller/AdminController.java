@@ -24,7 +24,6 @@ public class AdminController {
 
     private final GuestService guestService;
     private final GuestPdfService guestPdfService;
-    private  final GuestRepository guestRepository;
 
     @GetMapping("/guests")
     public List<GuestAdminDto> findAll() {
@@ -65,9 +64,11 @@ public class AdminController {
                 .contentType(MediaType.APPLICATION_PDF)
                 .body(pdf);
     }
-    @DeleteMapping("/{id}")
-    public void deleteGuest(@PathVariable Long id) {
-        guestRepository.deleteById(id);
+
+    @DeleteMapping("/guests/{id}")
+    public ResponseEntity<Void> deleteGuest(@PathVariable Long id) {
+        guestService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

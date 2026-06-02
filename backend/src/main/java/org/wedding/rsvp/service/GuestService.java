@@ -66,6 +66,15 @@ public class GuestService {
     }
 
     @Transactional
+    public void delete(Long id) {
+        if (!guestRepository.existsById(id)) {
+            throw new IllegalArgumentException("Invitato non trovato");
+        }
+
+        guestRepository.deleteById(id);
+    }
+
+    @Transactional
     public GuestInviteDto reply(String token, GuestReplyRequest request) {
         GuestEntity guest = findByToken(token);
 
@@ -216,4 +225,5 @@ public class GuestService {
             return 1;
         }
     }
+
 }
