@@ -270,6 +270,76 @@ th {
   border-radius: 36px 36px 0 0;
 }
 
+.gift-button {
+  margin-top: 14px;
+  width: 100%;
+  background: #f3dfd7;
+  color: #35586b;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,.45);
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+
+  z-index: 999;
+}
+
+.gift-modal {
+  width: min(460px, 100%);
+
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 32px;
+
+  position: relative;
+
+  text-align: center;
+
+  box-shadow: 0 30px 80px rgba(0,0,0,.18);
+}
+
+.close-button {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 999px;
+
+  background: #f4f4f4;
+
+  color: #444;
+}
+
+.iban-box {
+  margin-top: 20px;
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  background: #f8f4f1;
+}
+
+.iban-box p {
+  font-size: 18px;
+  font-weight: 700;
+
+  word-break: break-all;
+}
+
 
 @media (max-width: 800px) {
 

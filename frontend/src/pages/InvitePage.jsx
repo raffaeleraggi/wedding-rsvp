@@ -6,6 +6,7 @@ import headerImage from "../assets/header.jpeg";
 export default function InvitePage() {
   const { token } = useParams();
   const [guest, setGuest] = useState(null);
+  const [showGift, setShowGift] = useState(false);
   const [saved, setSaved] = useState(false);
   const [form, setForm] = useState({
     status: "CONFERMATO",
@@ -80,7 +81,49 @@ export default function InvitePage() {
                     onChange={(e) => setForm({ ...form, message: e.target.value })} />
 
           <button>Invia conferma</button>
+
+          <button type="button" className="gift-button" onClick={() => setShowGift(true)}>
+              🎁 Regalo agli sposi
+          </button>
         </form>
+        {showGift && (
+  <div className="modal-overlay">
+    <div className="gift-modal">
+
+      <button
+        className="close-button"
+        onClick={() => setShowGift(false)}
+      >
+        ×
+      </button>
+
+      <h2>Lista nozze</h2>
+
+      <p>
+        Se desideri farci un regalo,
+        puoi contribuire al nostro viaggio ❤️
+      </p>
+
+      <div className="iban-box">
+        <strong>IBAN</strong>
+
+        <p>IT60X0542811101000000123456</p>
+
+        <button
+          type="button"
+          onClick={() => {
+            navigator.clipboard.writeText(
+              "IT60X0542811101000000123456"
+            );
+          }}
+        >
+          Copia IBAN
+        </button>
+      </div>
+
+    </div>
+  </div>
+)}
       </section>
     </main>
   );
