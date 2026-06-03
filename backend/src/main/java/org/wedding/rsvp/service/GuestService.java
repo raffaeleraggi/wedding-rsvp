@@ -202,7 +202,7 @@ public class GuestService {
 
     private String buildWhatsappLink(GuestEntity guest, String inviteUrl) {
         String phone = guest.getPhone() == null ? "" : guest.getPhone().replaceAll("[^0-9]", "");
-        String text = "Ciao " + guest.getName() + "! Martina e Riccardo sono felici di invitarti al loro matrimonio. Conferma qui la tua presenza: " + inviteUrl;
+        String text = "Ciao " + guest.getName() + "! Siamo felici di invitarti al nostro matrimonio. Conferma qui la tua presenza: " + inviteUrl;
         return "https://wa.me/" + phone + "?text=" + URLEncoder.encode(text, StandardCharsets.UTF_8);
     }
 

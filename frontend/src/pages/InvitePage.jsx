@@ -9,6 +9,7 @@ export default function InvitePage() {
   const [showGift, setShowGift] = useState(false);
   const [saved, setSaved] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [envelopeOpen, setEnvelopeOpen] = useState(false);
   const alreadyAnswered = guest?.status && guest.status !== "IN_ATTESA" && !editing;
   const [form, setForm] = useState({
     status: "CONFERMATO",
@@ -42,6 +43,36 @@ export default function InvitePage() {
   return (
   <main className="invite-page">
     <section className="invite-card">
+
+      {!envelopeOpen && (
+  <div className="envelope-section">
+
+    <button
+      type="button"
+      className="envelope"
+      onClick={() => setEnvelopeOpen(true)}
+    >
+
+      <div className="envelope-flap"></div>
+
+      <div className="envelope-body">
+
+        <div className="seal">
+          MR
+        </div>
+
+        <p className="open-text">
+          Tocca per aprire l’invito
+        </p>
+
+      </div>
+
+    </button>
+
+  </div>
+)}
+
+<div className={`invite-content ${envelopeOpen ? "open" : "closed"}`}>
 
       <div className="invite-image-wrapper">
         <img
@@ -170,7 +201,7 @@ export default function InvitePage() {
       >
         🎁 Regalo agli sposi
       </button>
-
+</div>
     </section>
 
     {showGift && (
@@ -188,8 +219,8 @@ export default function InvitePage() {
           <h2>🎁</h2>
 
           <p>
-            Se desideri farci un regalo,
-            puoi contribuire al nostro viaggio ❤️
+            La vostra presenza, sarà per noi la gioia più grande.
+            Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ❤️
           </p>
 
           <div className="iban-box">
