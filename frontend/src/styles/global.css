@@ -463,18 +463,30 @@ th {
 .envelope {
   position: relative;
 
-  width: 300px;
-  height: 200px;
+  width: min(340px, 92vw);
+  height: 520px;
 
-  border: none;
+  border-radius: 34px;
 
-  background: transparent;
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.45);
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8e8e5,
+      #f4d8d2
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
 
   cursor: pointer;
 
-  perspective: 1000px;
+  padding: 0;
 
-  box-shadow: none;
+  isolation: isolate;
 }
 
 .envelope-body {
@@ -598,6 +610,126 @@ th {
     scale(1);
 
   transition: all 1s ease;
+}
+
+.envelope::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.35), transparent 20%),
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,.22), transparent 18%),
+    radial-gradient(circle at 30% 75%, rgba(255,255,255,.22), transparent 20%);
+
+  opacity: .9;
+
+  z-index: 0;
+}
+
+.envelope-flap {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 54%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #efd3ce,
+      #e8c1ba
+    );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
+
+  transform-origin: top;
+
+  transition:
+    transform 1s cubic-bezier(.22,.61,.36,1);
+
+  z-index: 2;
+
+  box-shadow:
+    inset 0 -8px 20px rgba(0,0,0,.05);
+}
+
+.envelope.open .envelope-flap {
+  transform:
+    rotateX(160deg);
+}
+
+.envelope-body {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 24px;
+
+  z-index: 1;
+}
+
+.seal {
+  width: 96px;
+  height: 96px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #fff6f2,
+      #f3d6cf 40%,
+      #e3b6ab 70%
+    );
+
+  border:
+    3px solid rgba(255,255,255,.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Great Vibes", cursive;
+
+  font-size: 52px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.15);
+
+  box-shadow:
+    inset 0 3px 10px rgba(255,255,255,.5),
+    inset 0 -8px 12px rgba(0,0,0,.08),
+    0 18px 30px rgba(0,0,0,.12);
+
+  z-index: 4;
+}
+
+.open-text {
+  font-size: 14px;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+
+  color: rgba(44,63,80,.72);
+
+  font-weight: 700;
 }
 
 @media (max-width: 800px) {

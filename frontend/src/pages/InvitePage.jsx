@@ -47,11 +47,11 @@ export default function InvitePage() {
       {!envelopeOpen && (
   <div className="envelope-section">
 
-    <button
-      type="button"
-      className="envelope"
-      onClick={() => setEnvelopeOpen(true)}
-    >
+  <button
+  type="button"
+  className={`envelope ${envelopeOpen ? "open" : ""}`}
+  onClick={() => setEnvelopeOpen(true)}
+>
 
       <div className="envelope-flap"></div>
 
