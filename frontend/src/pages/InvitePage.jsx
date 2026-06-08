@@ -47,27 +47,20 @@ export default function InvitePage() {
       {!envelopeOpen && (
   <div className="envelope-section">
 
-  <button
+<button
   type="button"
   className={`envelope ${envelopeOpen ? "open" : ""}`}
   onClick={() => setEnvelopeOpen(true)}
 >
+  <div className="envelope-flap"></div>
+  <div className="envelope-side-left"></div>
+  <div className="envelope-side-right"></div>
 
-      <div className="envelope-flap"></div>
-
-      <div className="envelope-body">
-
-        <div className="seal">
-          MR
-        </div>
-
-        <p className="open-text">
-          Tocca per aprire l’invito
-        </p>
-
-      </div>
-
-    </button>
+  <div className="envelope-body">
+    <div className="seal">MR</div>
+    <p className="open-text">Tocca per aprire l’invito</p>
+  </div>
+</button>
 
   </div>
 )}
@@ -87,8 +80,26 @@ export default function InvitePage() {
       <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
 
       <div className="event-box">
-        <p><strong>Data:</strong> 18 settembre 2026, ore 17:00</p>
-        <p><strong>Luogo:</strong> Tenuta la Gramignana, Vitorchiano (VT)</p>
+        <p><strong>18 settembre 2026</strong></p>
+      </div>
+
+      <div className="event-box">
+        <p><strong>Celebrazion</strong></p>
+        <p><strong>Casa Comunale di Vitorchiano</strong>ore 17:00</p>
+
+        <a
+          href="https://maps.app.goo.gl/1wsw1Gfb9FjAoeBX6"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="maps-button"
+        >
+          ✨ Come arrivare
+        </a>
+      </div>
+
+      <div className="event-box">
+        <p><strong>Ricevimento</strong></p>
+        <p><strong>Tenuta la Gramignana, Vitorchiano</strong> ore 19:00 </p>
 
         <a
           href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5"
