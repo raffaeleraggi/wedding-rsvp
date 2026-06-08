@@ -508,7 +508,7 @@ th {
 }
 
 .envelope::after {
-  content: "You are invited for our special day";
+  content: "Tocca per aprire l'invito";
 
   position: absolute;
   bottom: 34px;

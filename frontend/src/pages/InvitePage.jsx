@@ -57,8 +57,7 @@ export default function InvitePage() {
   <div className="envelope-side-right"></div>
 
   <div className="envelope-body">
-    <div className="seal">MR</div>
-    <p className="open-text">Tocca per aprire l’invito</p>
+    <div className="seal">M & R</div>
   </div>
 </button>
 
@@ -78,14 +77,11 @@ export default function InvitePage() {
       <p className="eyebrow">Save the date</p>
       <h1>Martina & Riccardo</h1>
       <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
+      <h2>18 settembre 2026</h2>
 
       <div className="event-box">
-        <p><strong>18 settembre 2026</strong></p>
-      </div>
-
-      <div className="event-box">
-        <p><strong>Celebrazion</strong></p>
-        <p><strong>Casa Comunale di Vitorchiano</strong>ore 17:00</p>
+        <p><strong>Celebrazione</strong></p>
+        <p><strong>Casa Comunale di Vitorchiano</strong> ore 17:00</p>
 
         <a
           href="https://maps.app.goo.gl/1wsw1Gfb9FjAoeBX6"
