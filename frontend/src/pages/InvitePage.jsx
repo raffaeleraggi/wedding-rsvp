@@ -227,13 +227,16 @@ export default function InvitePage() {
           <div className="iban-box">
             <strong>IBAN</strong>
 
-            <p>IT60X0542811101000000123456</p>
+            <p>IT63C0366901600474478451042</p>
+
+            <p>Beneficiario:</p>
+            <p>Martina Fornara & Riccardo Marzolini</p>
 
             <button
               type="button"
               onClick={() => {
                 navigator.clipboard.writeText(
-                  "IT60X0542811101000000123456"
+                  "IT63C0366901600474478451042"
                 );
               }}
             >
