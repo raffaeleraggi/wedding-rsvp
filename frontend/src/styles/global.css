@@ -107,6 +107,12 @@ h2 {
   color: var(--blue-dark);
 }
 
+h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  margin-top: 0;
+  color: var(--blue-dark);
+}
+
 .muted {
   color: var(--muted);
 }

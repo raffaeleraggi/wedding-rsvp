@@ -73,7 +73,7 @@ export default function InvitePage() {
       <h2>18 settembre 2026</h2>
 
       <div className="event-box">
-        <p><strong>Celebrazione</strong></p>
+        <h4>Celebrazione</h4>
         <p><strong>Casa Comunale di Vitorchiano</strong></p>
         <p>ore 17:00</p>
         <a
@@ -87,7 +87,7 @@ export default function InvitePage() {
       </div>
 
       <div className="event-box">
-        <p><strong>Ricevimento</strong></p>
+        <h4>Ricevimento</h4>
         <p><strong>Tenuta la Gramignana</strong></p>
         <p>ore 18:00</p>
 
