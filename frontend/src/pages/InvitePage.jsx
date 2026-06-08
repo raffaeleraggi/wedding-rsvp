@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api.js";
 import headerImage from "../assets/header.jpeg";
+import envelopeBg from "../assets/envelope-bg.png";
 
 export default function InvitePage() {
   const { token } = useParams();
@@ -44,23 +45,15 @@ export default function InvitePage() {
   <main className="invite-page">
     <section className="invite-card">
 
-      {!envelopeOpen && (
-  <div className="envelope-section">
-
-<button
-  type="button"
-  className={`envelope ${envelopeOpen ? "open" : ""}`}
-  onClick={() => setEnvelopeOpen(true)}
->
-  <div className="envelope-flap"></div>
-  <div className="envelope-side-left"></div>
-  <div className="envelope-side-right"></div>
-
-  <div className="envelope-body">
-    <div className="seal">M&R</div>
-  </div>
-</button>
-
+{!envelopeOpen && (
+  <div className="envelope-cover">
+    <button
+      type="button"
+      className="envelope-cover-button"
+      onClick={() => setEnvelopeOpen(true)}
+      style={{ backgroundImage: `url(${envelopeBg})` }}
+      aria-label="Apri invito"
+    />
   </div>
 )}
 
@@ -81,8 +74,8 @@ export default function InvitePage() {
 
       <div className="event-box">
         <p><strong>Celebrazione</strong></p>
-        <p><strong>Casa Comunale di Vitorchiano</strong>     ore 17:00</p>
-
+        <p><strong>Casa Comunale di Vitorchiano</strong></p>
+        <p>ore 17:00</p>
         <a
           href="https://maps.app.goo.gl/1wsw1Gfb9FjAoeBX6"
           target="_blank"
@@ -95,7 +88,8 @@ export default function InvitePage() {
 
       <div className="event-box">
         <p><strong>Ricevimento</strong></p>
-        <p><strong>Tenuta la Gramignana, Vitorchiano</strong> ore 19:00 </p>
+        <p><strong>Tenuta la Gramignana</strong></p>
+        <p>ore 19:00</p>
 
         <a
           href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5"
@@ -206,7 +200,7 @@ export default function InvitePage() {
         className="gift-button"
         onClick={() => setShowGift(true)}
       >
-        🎁 Regalo agli sposi
+        🎁 Un pensiero per gli sposi 🎁
       </button>
 </div>
     </section>

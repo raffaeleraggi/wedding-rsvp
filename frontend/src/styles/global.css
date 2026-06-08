@@ -326,7 +326,7 @@ th {
 .iban-box {
   margin-top: 20px;
 
-  padding: 20px;
+  padding: 10px;
 
   border-radius: 20px;
 
@@ -619,12 +619,27 @@ th {
   color: rgba(38,63,77,.60);
 }
 
-.envelope.open {
-  animation: envelopeFadeOut .9s ease .55s forwards;
+.envelope-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #f7bfae;
 }
 
-.envelope.open .envelope-flap {
-  transform: rotateX(170deg);
+.envelope-cover-button {
+  width: 100vw;
+  height: 100dvh;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}
+
+.envelope-cover-button:hover {
+  background-color: transparent;
 }
 
 .invite-content.closed {
@@ -639,11 +654,13 @@ th {
   transition: opacity .8s ease;
 }
 
-@keyframes envelopeFadeOut {
-  to {
-    opacity: 0;
-    transform: scale(1.04);
-    pointer-events: none;
+@keyframes envelopeBreath {
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.015);
   }
 }
 
@@ -663,25 +680,5 @@ th {
     grid-template-columns: 1fr;
   }
 
-    .envelope-section {
-    padding: 0;
-  }
-
-  .envelope {
-    width: 100vw;
-    height: 100dvh;
-    border-radius: 0;
-  }
-
-  .seal {
-    width: 140px;
-    height: 140px;
-    font-size: 70px;
-  }
-
-  .open-text {
-    bottom: 86px;
-    padding: 0 28px;
-  }
 
 }
