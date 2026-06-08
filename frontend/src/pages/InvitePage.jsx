@@ -57,7 +57,7 @@ export default function InvitePage() {
   <div className="envelope-side-right"></div>
 
   <div className="envelope-body">
-    <div className="seal">M & R</div>
+    <div className="seal">M&R</div>
   </div>
 </button>
 
@@ -81,7 +81,7 @@ export default function InvitePage() {
 
       <div className="event-box">
         <p><strong>Celebrazione</strong></p>
-        <p><strong>Casa Comunale di Vitorchiano</strong> ore 17:00</p>
+        <p><strong>Casa Comunale di Vitorchiano</strong>     ore 17:00</p>
 
         <a
           href="https://maps.app.goo.gl/1wsw1Gfb9FjAoeBX6"
