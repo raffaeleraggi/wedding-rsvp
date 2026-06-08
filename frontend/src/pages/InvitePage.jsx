@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api.js";
 import headerImage from "../assets/header.jpeg";
-import envelopeBg from "../assets/envelope-bg.png";
+import envelopeBg from "../assets/envelope-bg-blu.png";
 
 export default function InvitePage() {
   const { token } = useParams();
@@ -89,7 +89,7 @@ export default function InvitePage() {
       <div className="event-box">
         <p><strong>Ricevimento</strong></p>
         <p><strong>Tenuta la Gramignana</strong></p>
-        <p>ore 19:00</p>
+        <p>ore 18:00</p>
 
         <a
           href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5"
