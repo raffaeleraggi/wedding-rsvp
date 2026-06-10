@@ -224,25 +224,36 @@ export default function InvitePage() {
             Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ❤️
           </p>
 
-          <div className="iban-box">
-            <h6>IBAN:</h6>
+<div className="iban-box">
+  <div className="iban-label">IBAN</div>
 
-            <p><strong>IT63C0366901600474478451042</strong></p>
+  <div className="iban-value">
+    IT63C0366901600474478451042
+  </div>
 
-            <h6>Beneficiario:</h6>
-            <p>Martina Fornara<br/>&<br/>Riccardo Marzolini</p>
+  <div className="iban-label">
+    Beneficiario
+  </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                navigator.clipboard.writeText(
-                  "IT63C0366901600474478451042"
-                );
-              }}
-            >
-              Copia IBAN
-            </button>
-          </div>
+  <div className="beneficiary">
+    Martina Fornara
+    <br />
+    &
+    <br />
+    Riccardo Marzolini
+  </div>
+
+  <button
+    type="button"
+    onClick={() =>
+      navigator.clipboard.writeText(
+        "IT63C0366901600474478451042"
+      )
+    }
+  >
+    Copia IBAN
+  </button>
+</div>
 
         </div>
       </div>
