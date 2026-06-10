@@ -227,10 +227,10 @@ export default function InvitePage() {
           <div className="iban-box">
             <strong>IBAN</strong>
 
-            <p>IT63C0366901600474478451042</p>
+            <p><strong>IT63C0366901600474478451042</strong></p>
 
             <p>Beneficiario:</p>
-            <p>Martina Fornara<br/>&<br/>Riccardo Marzolini</p>
+            <p><strong>Martina Fornara<br/>&<br/>Riccardo Marzolini</strong></p>
 
             <button
               type="button"

@@ -43,20 +43,25 @@ public class GuestPdfService {
             title.setSpacingAfter(20);
             document.add(title);
 
-            PdfPTable table = new PdfPTable(4);
+            PdfPTable table = new PdfPTable(6);
             table.setWidthPercentage(100);
-            table.setWidths(new float[]{2, 2, 2, 2});
+            table.setWidths(new float[]{2, 2, 2, 2, 2, 2});
 
             addHeader(table, "Nome");
             addHeader(table, "Cognome");
             addHeader(table, "Stato");
             addHeader(table, "Persone aggiuntive");
+            addHeader(table, "Allergie");
+            addHeader(table, "Messaggio");
+
 
             for (GuestEntity guest : guests) {
                 table.addCell(value(guest.getName()));
                 table.addCell(value(guest.getSurname()));
                 table.addCell(guest.getStatus() != null ? guest.getStatus().name() : "");
                 table.addCell(guest.getAdditionalGuests() != null ? guest.getAdditionalGuests().toString() : "1");
+                table.addCell(guest.getAllergies());
+                table.addCell(guest.getMessage());
             }
 
             table.setSpacingAfter(20);
