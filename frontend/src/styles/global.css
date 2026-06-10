@@ -41,7 +41,7 @@ button {
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  letter-spacing: .02em;
+  letter-spacing: .03em;
 }
 
 button:hover {
@@ -56,11 +56,24 @@ input, textarea, select {
   background: white;
   color: var(--text);
   font: inherit;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: 2px solid rgba(244, 182, 166, 0.55);
   border-color: var(--peach);
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #9aa4b2;
+}
+
+select option {
+  font-family: "Montserrat", sans-serif;
 }
 
 textarea {
@@ -114,7 +127,7 @@ h2 {
   color: var(--blue-dark);
 }
 
-h2 {
+h4 {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(32px, 4vw, 46px);
   font-weight: 600;
@@ -184,6 +197,13 @@ th, td {
 
 th {
   color: var(--blue-dark);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+td {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
 
 .badge {
@@ -248,11 +268,26 @@ th {
   background: var(--peach-soft);
   border: 1px solid rgba(244, 182, 166, 0.45);
   text-align: left;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.event-box strong {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: var(--blue-dark);
+  font-size: 15px;
 }
 
 .guest-hi {
-  font-family: "Montserrat", sans-serif;
-  font-size: 22px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
   font-weight: 600;
   color: var(--blue-dark);
 }
