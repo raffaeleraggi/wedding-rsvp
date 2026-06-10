@@ -713,6 +713,28 @@ label {
   transition: opacity .8s ease;
 }
 
+.rsvp-form label,
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  font-family: "Montserrat", sans-serif;
+}
+
+.rsvp-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue-dark);
+  letter-spacing: 0.02em;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--blue-dark);
+}
+
 @keyframes envelopeBreath {
   0%,100% {
     transform: scale(1);
