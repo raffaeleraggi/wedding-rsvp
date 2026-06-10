@@ -287,8 +287,9 @@ label {
 
 .guest-hi {
   font-family: "Cormorant Garamond", serif;
-  font-size: 34px;
+  font-size: clamp(38px, 7vw, 54px);
   font-weight: 600;
+  line-height: 1.05;
   color: var(--blue-dark);
 }
 
@@ -721,10 +722,10 @@ label {
 }
 
 .rsvp-form label {
-  font-size: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
   font-weight: 600;
   color: var(--blue-dark);
-  letter-spacing: 0.02em;
 }
 
 .rsvp-form input,
