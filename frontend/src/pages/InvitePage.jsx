@@ -230,7 +230,7 @@ export default function InvitePage() {
             <p>IT63C0366901600474478451042</p>
 
             <p>Beneficiario:</p>
-            <p>Martina Fornara & Riccardo Marzolini</p>
+            <p>Martina Fornara<br/>&<br/>Riccardo Marzolini</p>
 
             <button
               type="button"
