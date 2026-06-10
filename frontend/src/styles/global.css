@@ -272,7 +272,7 @@ td {
 
 }
 
-.event-box strong {
+.event-box p {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: var(--blue-dark);
