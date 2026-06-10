@@ -315,7 +315,7 @@ th {
 
   border-radius: 28px;
 
-  padding: 25px;
+  padding: 20px;
 
   position: relative;
 
@@ -353,6 +353,13 @@ th {
 .iban-box p {
   font-size: 18px;
   font-weight: 700;
+
+  word-break: break-all;
+}
+
+.iban-box h6 {
+  font-size: 18px;
+  font-weight: 900;
 
   word-break: break-all;
 }

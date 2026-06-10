@@ -45,7 +45,7 @@ public class GuestPdfService {
 
             PdfPTable table = new PdfPTable(6);
             table.setWidthPercentage(100);
-            table.setWidths(new float[]{2, 2, 2, 2, 2, 2});
+            table.setWidths(new float[]{2, 2, 2, 1, 2, 2});
 
             addHeader(table, "Nome");
             addHeader(table, "Cognome");
