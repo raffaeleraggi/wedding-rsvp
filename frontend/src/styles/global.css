@@ -272,10 +272,26 @@ td {
 
 }
 
-.event-box p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+.event-box h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1;
+  font-weight: 600;
+  margin: 0 0 24px;
   color: var(--blue-dark);
+}
+
+.event-box p {
+  margin: 10px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(28px, 4.5vw, 36px);
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+
+.event-box p strong {
+  font-weight: 700;
 }
 
 label {
