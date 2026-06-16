@@ -105,7 +105,9 @@ const filteredGuests = guests.filter((guest) => {
     <main className="admin-page">
       <section className="hero-panel">
         <div>
-          <p className="eyebrow">Matrimonio Martina & Riccardo</p>
+          <p className="eyebrow">Matrimonio Martina 
+            <span className="ampersand"> & </span> 
+            Riccardo</p>
           <h1>Dashboard partecipazioni</h1>
           <p className="muted">
             Gestisci gli invitati, esporta PDF, copia i link e controlla le conferme.
