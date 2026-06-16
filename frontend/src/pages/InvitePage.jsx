@@ -160,17 +160,21 @@ export default function InvitePage() {
           </select>
 
           <label>Porti qualcuno? Faccelo sapere:</label>
-          <input
-            type="number"
-            min="0"
-            value={form.additionalGuests}
-            onChange={(e) =>
-              setForm({
-                ...form,
-                additionalGuests: Number(e.target.value),
-              })
-            }
-          />
+         <select
+  value={form.additionalGuests}
+  onChange={(e) =>
+    setForm({
+      ...form,
+      additionalGuests: Number(e.target.value),
+    })
+  }
+>
+  <option value={0}>Verrò da solo/a</option>
+  <option value={1}>Porterò 1 ospite</option>
+  <option value={2}>Porterò 2 ospiti</option>
+  <option value={3}>Porterò 3 ospiti</option>
+  <option value={4}>Porterò 4 ospiti</option>
+</select>
 
           <label>Allergie o intolleranze</label>
           <textarea
