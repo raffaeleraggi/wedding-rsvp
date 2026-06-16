@@ -73,7 +73,7 @@ input, textarea, select {
   color: var(--text);
   font: inherit;
   font-family: "Reenie Beanie", cursive;
-  font-size: 15px;
+  font-size: 32px;
   font-weight: 400;
 }
 
@@ -85,6 +85,7 @@ input:focus, textarea:focus, select:focus {
 input::placeholder,
 textarea::placeholder {
   font-family: "Reenie Beanie", cursive;
+  font-size: 30px;
   color: #9aa4b2;
 }
 
@@ -944,5 +945,8 @@ button,
   font-size: 20px;
 }
 
+.search-input {
+  margin-bottom: 18px;
+}
 
 }
