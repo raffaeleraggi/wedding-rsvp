@@ -14,6 +14,7 @@ export default function DashboardPage() {
     additionalPeople: 0,
   });
   const [file, setFile] = useState(null);
+  const [search, setSearch] = useState("");
 
   const deleteGuest = async (id, name) => {
 
@@ -86,6 +87,20 @@ export default function DashboardPage() {
   link.remove();
 };
 
+const filteredGuests = guests.filter((guest) => {
+  const fullName = `${guest.name ?? ""} ${guest.surname ?? ""}`.toLowerCase();
+  const phone = `${guest.phone ?? ""}`.toLowerCase();
+  const status = `${guest.status ?? ""}`.toLowerCase();
+
+  const value = search.toLowerCase();
+
+  return (
+    fullName.includes(value) ||
+    phone.includes(value) ||
+    status.includes(value)
+  );
+});
+
   return (
     <main className="admin-page">
       <section className="hero-panel">
@@ -127,8 +142,15 @@ export default function DashboardPage() {
       <section className="card form-card">
         <h2>Invitati</h2>
 
+        <input
+  className="search-input"
+  placeholder="Cerca invitato per nome o cognome"
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+/>
+
          <button type="card" onClick={exportPdf}>
-          Esporta PDF invitati
+          Esporta Lista Invitati
         </button>
 
         <div className="table-wrapper">
@@ -144,7 +166,7 @@ export default function DashboardPage() {
             </thead>
 
             <tbody>
-              {guests.map((guest) => (
+              {filteredGuests.map((guest) => (
                 <tr key={guest.id}>
                   <td>{guest.name} {guest.surname}</td>
                   <td><span className={`badge ${guest.status?.toLowerCase()}`}>{guest.status}</span></td>
