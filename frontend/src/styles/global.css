@@ -824,5 +824,142 @@ label {
     grid-template-columns: 1fr;
   }
 
+  html,
+body,
+#root,
+button,
+input,
+textarea,
+select,
+table,
+td,
+th,
+p,
+a {
+  font-family: "Reenie Beanie", cursive;
+}
+
+body {
+  font-size: 26px;
+  line-height: 1.35;
+}
+
+h1 {
+  font-family: "Berkshire Swash", cursive;
+  font-size: clamp(46px, 9vw, 76px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--blue-dark);
+}
+
+h2 {
+  font-family: "Yellowtail", cursive;
+  font-size: clamp(38px, 7vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--blue-dark);
+}
+
+h4 {
+  font-family: "Yellowtail", cursive;
+  font-size: clamp(38px, 7vw, 54px);
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 0 18px;
+  color: var(--blue-dark);
+}
+
+.eyebrow {
+  font-family: "Reenie Beanie", cursive;
+  font-size: clamp(30px, 6vw, 42px);
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #d79b87;
+}
+
+.subtitle {
+  font-family: "Reenie Beanie", cursive;
+  font-size: clamp(26px, 5vw, 34px);
+  line-height: 1.25;
+  color: var(--muted);
+}
+
+.event-box p,
+.event-box p strong {
+  font-family: "Reenie Beanie", cursive;
+  font-size: clamp(30px, 6vw, 40px);
+  line-height: 1.05;
+  font-weight: 400;
+  color: var(--blue-dark);
+}
+
+.guest-hi {
+  font-family: "Zeyada", cursive;
+  font-size: clamp(44px, 9vw, 64px);
+  line-height: 1.05;
+  font-weight: 400;
+  color: var(--blue-dark);
+}
+
+.rsvp-form label {
+  font-family: "Yellowtail", cursive;
+  font-size: clamp(30px, 6vw, 40px);
+  font-weight: 400;
+  color: var(--blue-dark);
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 30px;
+  line-height: 1.15;
+  color: var(--blue-dark);
+}
+
+button,
+.maps-button,
+.gift-button {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.iban-label {
+  font-family: "Yellowtail", cursive;
+  font-size: 32px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.iban-value {
+  font-family: "Reenie Beanie", cursive;
+  font-size: clamp(26px, 5vw, 34px);
+  line-height: 1.1;
+}
+
+.beneficiary {
+  font-family: "Zeyada", cursive;
+  font-size: clamp(38px, 7vw, 52px);
+  line-height: 1.05;
+}
+
+.saved-rsvp-card h2 {
+  font-family: "Yellowtail", cursive;
+  font-size: clamp(38px, 7vw, 54px);
+}
+
+.saved-text,
+.saved-status {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 30px;
+}
+
+.badge {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 20px;
+}
+
 
 }
