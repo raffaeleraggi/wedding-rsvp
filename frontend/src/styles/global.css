@@ -339,7 +339,7 @@ label {
 .invite-image-wrapper {
   margin: -56px -56px 28px;
   overflow: hidden;
-  border-radius: 36px 36px 0 0;
+  border-radius: 50px 50px 50px 50px;
 }
 
 .invite-image {
@@ -781,16 +781,10 @@ label {
   transition: opacity .8s ease;
 }
 
-.rsvp-form label,
-.rsvp-form input,
-.rsvp-form select,
-.rsvp-form textarea {
-  font-family: "Reenie Beanie", cursive;
-}
 
 .rsvp-form label {
   font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 600;
   color: var(--blue-dark);
 }
@@ -798,7 +792,8 @@ label {
 .rsvp-form input,
 .rsvp-form select,
 .rsvp-form textarea {
-  font-size: 15px;
+  font-family: "Reenie Beanie", cursive;
+  font-size: 28px;
   font-weight: 400;
   color: var(--blue-dark);
 }
