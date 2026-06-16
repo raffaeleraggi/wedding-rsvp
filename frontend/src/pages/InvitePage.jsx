@@ -69,7 +69,7 @@ export default function InvitePage() {
 
       <p className="eyebrow">Save the date</p>
       <h1>Martina & Riccardo</h1>
-      <p className="subtitle">Siamo felici di invitarti al nostro matrimonio</p>
+      <p className="eyebrow">Siamo felici di invitarti al nostro matrimonio</p>
       <h2>18 settembre 2026</h2>
 
       <div className="event-box">

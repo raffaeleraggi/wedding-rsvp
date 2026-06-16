@@ -6,12 +6,12 @@ select,
 button,
 table,
 #root {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
 }
 
 :root {
 
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   --blue: #42687a;
   --blue-dark: #263f4d;
   --peach: #f4b6a6;
@@ -32,7 +32,7 @@ table,
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   font-weight: 400;
   color: #31475b;
   visibility: hidden;
@@ -55,7 +55,7 @@ button {
   color: white;
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   font-weight: 600;
   letter-spacing: .03em;
 }
@@ -72,7 +72,7 @@ input, textarea, select {
   background: white;
   color: var(--text);
   font: inherit;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   font-size: 15px;
   font-weight: 400;
 }
@@ -84,12 +84,12 @@ input:focus, textarea:focus, select:focus {
 
 input::placeholder,
 textarea::placeholder {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   color: #9aa4b2;
 }
 
 select option {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
 }
 
 textarea {
@@ -211,12 +211,12 @@ th, td {
 
 th {
   color: var(--blue-dark);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   font-weight: 700;
 }
 
 td {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   font-weight: 400;
 }
 
@@ -282,7 +282,6 @@ td {
   background: var(--peach-soft);
   border: 1px solid rgba(244, 182, 166, 0.45);
   text-align: left;
-  font-family: "Montserrat", sans-serif;
 
 }
 
@@ -309,7 +308,7 @@ td {
 }
 
 label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 500;
   color: var(--blue-dark);
   font-size: 15px;
@@ -430,7 +429,7 @@ label {
 }
 
 .iban-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
   text-transform: uppercase;
   letter-spacing: .18em;
   font-size: 12px;
@@ -782,7 +781,7 @@ label {
 .rsvp-form input,
 .rsvp-form select,
 .rsvp-form textarea {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Reenie Beanie", cursive;
 }
 
 .rsvp-form label {
