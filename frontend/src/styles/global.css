@@ -743,7 +743,7 @@ body {
 
 .gift-button{
     font-family: "Allura", cursive;
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: .5px;
 }
 
@@ -816,6 +816,46 @@ table,
   color: var(--blue-dark);
   font-size: clamp(28px, 5vw, 40px);
   font-weight: 400;
+}
+
+/* ---- Foto ingrandita ---- */
+
+.invite-image-wrapper {
+  cursor: pointer;
+}
+
+.photo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.photo-full {
+  max-width: 100%;
+  max-height: 95dvh;
+  object-fit: contain;
+
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+
+.photo-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  border: none;
+  background: none;
+  color: white;
+  font-size: 48px;
+  cursor: pointer;
 }
 
 @keyframes envelopeBreath {

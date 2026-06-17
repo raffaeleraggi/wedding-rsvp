@@ -11,6 +11,7 @@ export default function InvitePage() {
   const [saved, setSaved] = useState(false);
   const [editing, setEditing] = useState(false);
   const [envelopeOpen, setEnvelopeOpen] = useState(false);
+  const [showPhoto, setShowPhoto] = useState(false);
   const alreadyAnswered = guest?.status && guest.status !== "IN_ATTESA" && !editing;
   const [form, setForm] = useState({
     status: "CONFERMATO",
@@ -59,12 +60,9 @@ export default function InvitePage() {
 
 <div className={`invite-content ${envelopeOpen ? "open" : "closed"}`}>
 
-      <div className="invite-image-wrapper">
-        <img
-          src={headerImage}
-          alt="Martina e Riccardo"
-          className="invite-image"
-        />
+      <div className="invite-image-wrapper"
+        onClick={() => setShowPhoto(true)}>
+          <img src={headerImage} alt="Martina e Riccardo" className="invite-image"/>
       </div>
 
       <p className="save-date">Save the date</p>
@@ -266,6 +264,26 @@ export default function InvitePage() {
         </div>
       </div>
     )}
+
+    {showPhoto && (
+  <div
+    className="photo-overlay"
+    onClick={() => setShowPhoto(false)}
+  >
+    <button
+      className="photo-close"
+      onClick={() => setShowPhoto(false)}
+    >
+      ×
+    </button>
+
+    <img
+      src={headerImage}
+      alt="Martina e Riccardo"
+      className="photo-full"
+    />
+  </div>
+)}
 
   </main>
 );
