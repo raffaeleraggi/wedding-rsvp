@@ -725,6 +725,7 @@ textarea,
 select,
 table,
 td,
+th,
 a {
   font-family: "Reenie Beanie", cursive;
 }
@@ -742,7 +743,7 @@ body {
 
 .gift-button{
     font-family: "Allura", cursive;
-    font-size: 46px;
+    font-size: 30px;
     letter-spacing: .5px;
 }
 
@@ -751,7 +752,7 @@ body {
     color: var(--blue-dark);
     text-align: center;
     font-size: clamp(42px,8vw,68px);
-    margin-bottom: 28px;
+    margin-bottom: 32px;
 }
 
 .subtitle,
@@ -808,6 +809,13 @@ table,
 .couple-ampersand {
   font-family: "Allura", cursive;
   font-size: 1.25em;
+}
+
+.invite-subtitle{
+  font-family: "Kalam", cursive;
+  color: #d99582;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 400;
 }
 
 @keyframes envelopeBreath {
