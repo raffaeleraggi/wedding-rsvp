@@ -763,13 +763,8 @@ textarea,
 select,
 table,
 td,
-p,
 a {
   font-family: "Reenie Beanie", cursive;
-}
-
-th{
-  font-family: "Reenie Beanie", serif;
 }
 
 body {
