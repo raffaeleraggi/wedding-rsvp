@@ -394,7 +394,10 @@ td {
 .maps-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+
+  width: fit-content;
 
   margin-top: 12px;
 
@@ -407,12 +410,12 @@ td {
   color: white !important;
 
   text-decoration: none;
-
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 400;
 
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
-
   transition: .2s;
+  align-self: flex-end;
 }
 
 .maps-button:hover {
@@ -760,10 +763,13 @@ textarea,
 select,
 table,
 td,
-th,
 p,
 a {
   font-family: "Reenie Beanie", cursive;
+}
+
+th{
+  font-family: "Reenie Beanie", serif;
 }
 
 body {
@@ -776,6 +782,12 @@ body {
 .rsvp-form label,
 .gift-button {
     font-family: "Allura", cursive;
+}
+
+.event-box h4 {
+    align-self: center;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .subtitle,
