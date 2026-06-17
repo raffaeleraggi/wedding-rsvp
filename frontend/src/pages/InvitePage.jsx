@@ -74,7 +74,7 @@ export default function InvitePage() {
       <span className="couple-ampersand"> & </span>
         Riccardo
       </h1>
-      <p>Siamo felici di invitarti al nostro matrimonio</p>
+      <h4 className="invite-subtitle">Siamo felici di invitarti al nostro matrimonio</h4>
       <p className="date">18 settembre 2026</p>
 
       <div className="event-box">

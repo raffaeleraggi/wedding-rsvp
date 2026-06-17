@@ -1,742 +1,173 @@
+/* =========================
+   FONT GLOBALI
+========================= */
+
 html,
 body,
+#root,
+button,
 input,
 textarea,
 select,
-button,
 table,
-#root {
-  font-family: "Reenie Beanie", cursive;
-}
-
-:root {
-
-  font-family: "Reenie Beanie", cursive;
-  --blue: #42687a;
-  --blue-dark: #263f4d;
-  --peach: #f4b6a6;
-  --peach-soft: #fff1ec;
-  --cream: #fff8f5;
-  --text: #263f4d;
-  --muted: #6f8490;
-  --border: rgba(66, 104, 122, 0.16);
-  --shadow: 0 18px 50px rgba(38, 63, 77, 0.10);
-
-  color: var(--text);
-  background: var(--cream);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Reenie Beanie", cursive;
-  font-weight: 400;
-  color: #31475b;
-  visibility: hidden;
-}
-
-html.fonts-loaded body {
-  visibility: visible;
-}
-
+td,
+th,
 a {
-  color: var(--blue);
-  font-weight: 700;
+  font-family: "LXGW WenKai TC", serif;
 }
 
-button {
-  border: 0;
-  border-radius: 999px;
-  padding: 11px 18px;
-  background: var(--blue);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
-  font-family: "Reenie Beanie", cursive;
-  font-weight: 600;
-  letter-spacing: .03em;
+/* =========================
+   TITOLI INVITO
+========================= */
+
+.couple-title {
+  font-family: "Original Surfer", cursive;
+  color: #d99582;
+  font-size: clamp(54px, 10vw, 100px);
+  line-height: 1.05;
 }
 
-button:hover {
-  background: var(--blue-dark);
+.couple-ampersand {
+  font-family: "Allura", cursive;
+  color: #d99582;
+  font-size: 1.25em;
 }
 
-input, textarea, select {
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px 14px;
-  background: white;
-  color: var(--text);
-  font: inherit;
-  font-family: "Reenie Beanie", cursive;
-  font-size: 32px;
+.date {
+  font-family: "Kalam", cursive;
+  color: #d99582;
+  font-size: clamp(34px, 6vw, 48px);
+}
+
+.invite-subtitle,
+.invite-content > h4 {
+  font-family: "Kalam", cursive;
+  color: #d99582;
+  font-size: clamp(28px, 5vw, 40px);
   font-weight: 400;
 }
 
-input:focus, textarea:focus, select:focus {
-  outline: 2px solid rgba(244, 182, 166, 0.55);
-  border-color: var(--peach);
-}
+/* =========================
+   EVENT BOX
+========================= */
 
-input::placeholder,
-textarea::placeholder {
-  font-family: "Reenie Beanie", cursive;
-  font-size: 30px;
-  color: #9aa4b2;
-}
-
-select option {
-  font-family: "Reenie Beanie", cursive;
-}
-
-textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-
-.admin-page {
-  width: min(1180px, calc(100% - 32px));
-  margin: 32px auto;
-}
-
-.hero-panel, .card, .invite-card, .stat-card {
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-
-.hero-panel {
-  border-radius: 32px;
-  padding: 36px;
-  background:
-    radial-gradient(circle at top right, rgba(244, 182, 166, .55), transparent 38%),
-    linear-gradient(135deg, rgba(255,255,255,.92), rgba(238,246,248,.82));
-}
-
-.eyebrow {
-  font-family: "Reenie Beanie", cursive;
-  font-size: 34px;
-  color: #d9a08f;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-
-.muted {
-  color: var(--muted);
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin: 20px 0;
-}
-
-.stat-card {
-  border-radius: 24px;
-  padding: 22px;
-}
-
-.stat-card span {
-  display: block;
-  color: var(--muted);
-}
-
-.stat-card strong {
-  font-size: 34px;
-  color: var(--blue);
-}
-
-.two-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.card {
-  border-radius: 24px;
-  padding: 24px;
-}
-
-.form-card {
-  display: grid;
-  gap: 12px;
-  margin: 20px 0;
-}
-
-.table-wrapper {
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 14px;
-  border-bottom: 1px solid rgba(66, 104, 122, 0.12);
-  text-align: left;
-}
-
-th {
+.event-box h4 {
+  font-family: "Allura", cursive;
   color: var(--blue-dark);
-  font-family: "Kalam", cursive;
-  font-weight: 700;
-}
-
-td {
-  font-family: "Kalam", cursive;
-  font-weight: 400;
-}
-
-.badge {
-  display: inline-block;
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 12px;
-  font-weight: 800;
-  background: #eee;
-}
-
-.badge.confirmed,
-.badge.confermato {
-  background: #dbe9ee;
-  color: var(--blue-dark);
-}
-
-.badge.declined,
-.badge.rifiutato {
-  background: #ffe0d8;
-  color: #9a4d42;
-}
-
-.badge.pending,
-.badge.in_attesa {
-  background: var(--peach-soft);
-  color: #b06451;
-}
-
-.actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.invite-page {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background:
-    radial-gradient(circle at top left, rgba(244, 182, 166, .45), transparent 32%),
-    linear-gradient(135deg, #fff8f5, #eef6f8);
-}
-
-.invite-card {
-  width: min(720px, 100%);
-  border-radius: 36px;
-  padding: clamp(28px, 5vw, 56px);
   text-align: center;
+  font-size: clamp(42px, 8vw, 68px);
+  font-weight: 400;
+  margin: 0 0 28px;
 }
 
-.subtitle {
-  font-size: 20px;
-  color: var(--muted);
+.event-box p {
+  font-family: "Kalam", cursive;
+  color: var(--blue-dark);
+  font-size: clamp(30px, 6vw, 42px);
+  line-height: 1.25;
+  font-weight: 400;
 }
-
-.event-box {
-  margin: 28px 0;
-  padding: 20px;
-  border-radius: 24px;
-  background: var(--peach-soft);
-  border: 1px solid rgba(244, 182, 166, 0.45);
-  text-align: left;
-
-}
-
 
 .event-box p strong {
   font-weight: 700;
 }
 
+/* =========================
+   BOTTONI
+========================= */
+
+.maps-button {
+  font-family: "Kalam", cursive;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 18px;
+  font-size: clamp(22px, 4vw, 30px);
+  align-self: flex-start;
+}
+
+.gift-button {
+  font-family: "Allura", cursive;
+  font-size: clamp(34px, 6vw, 46px);
+  letter-spacing: .5px;
+}
+
+/* =========================
+   FORM RSVP
+========================= */
 
 .guest-hi {
-  font-family: "Zeyada", cursive;
-  font-size: clamp(48px, 7vw, 68px);
+  font-family: "Kalam", cursive;
+  font-size: clamp(36px, 7vw, 58px);
   line-height: 1.15;
   color: var(--blue-dark);
 }
 
-.rsvp-form {
-  display: grid;
-  gap: 12px;
-  text-align: left;
-}
-
-.success {
-  margin: 16px 0;
-  padding: 14px;
-  border-radius: 16px;
-  background: #dbe9ee;
-  color: var(--blue-dark);
-  font-weight: 700;
-}
-
-.invite-image-wrapper {
-  overflow: hidden;
-  border-radius: 32px 32px 0 0;
-}
-
-.invite-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 32px 32px 0 0;
-}
-
-.gift-button {
-  margin-top: 14px;
-  width: 100%;
-  background: #f3dfd7;
-  color: #35586b;
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-
-  background: rgba(0,0,0,.45);
-
-  display: grid;
-  place-items: center;
-
-  padding: 24px;
-
-  z-index: 999;
-}
-
-.gift-modal {
-  width: min(460px, 100%);
-
-  background: white;
-
-  border-radius: 28px;
-
-  padding: 20px;
-
-  position: relative;
-
-  text-align: center;
-
-  box-shadow: 0 30px 80px rgba(0,0,0,.18);
-}
-
-.close-button {
-  position: absolute;
-
-  top: 12px;
-  right: 12px;
-
-  width: 40px;
-  height: 40px;
-
-  border-radius: 999px;
-
-  background: #f4f4f4;
-
-  color: #444;
-}
-
-.iban-box {
-  margin-top: 20px;
-
-  padding: 10px;
-
-  border-radius: 20px;
-
-  background: #f8f4f1;
-}
-
-.iban-box p {
-  font-size: 18px;
-  font-weight: 700;
-
-  word-break: break-all;
-}
-
-.iban-box h6 {
-  font-size: 18px;
-  font-weight: 900;
-
-  word-break: break-all;
-}
-
-.iban-label {
-  font-family: "Reenie Beanie", cursive;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: 12px;
-  font-weight: 600;
-  color: #8a8f9c;
-
-  margin-top: 20px;
-  margin-bottom: 8px;
-}
-
-
-.maps-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  width: fit-content;
-
-  margin-top: 12px;
-
-  padding: 12px 18px;
-
-  border-radius: 999px;
-
-  background: var(--blue);
-
-  color: white !important;
-
-  text-decoration: none;
-  font-size: 1rem;
+.rsvp-form label {
+  font-family: "Allura", cursive;
+  font-size: clamp(34px, 6vw, 46px);
   font-weight: 400;
-
-  box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
-  transition: .2s;
-  align-self: flex-end;
+  color: var(--blue-dark);
 }
-
-.maps-button:hover {
-  background: var(--blue-dark);
-
-  transform: translateY(-1px);
-}
-
-.saved-rsvp-card {
-  margin-top: 20px;
-
-  padding: 28px;
-
-  border-radius: 28px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.95),
-      rgba(244,182,166,.16)
-    );
-
-  border: 1px solid rgba(66,104,122,.12);
-
-  text-align: center;
-
-  box-shadow:
-    0 14px 40px rgba(0,0,0,.08);
-}
-
-.saved-rsvp-card {
-   font-size: 32px;
-}
-
-.saved-icon {
-  width: 72px;
-  height: 72px;
-
-  margin: 0 auto 18px;
-
-  border-radius: 999px;
-
-  display: grid;
-  place-items: center;
-
-  background: #dce9ef;
-
-  color: #35586b;
-
-  font-size: 34px;
-  font-weight: 900;
-}
-
-.saved-text {
-  color: #70838e;
-}
-
-.saved-status {
-  margin: 18px 0;
-
-  font-size: 36px;
-  font-weight: 700;
-
-  color: #35586b;
-}
-
-.delete-button {
-  background: #f7d8d3;
-  color: #8a3429;
-}
-
-.delete-button:hover {
-  background: #efc1ba;
-}
-
-.icon-button {
-  width: 42px;
-  height: 42px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0;
-}
-
-.delete-button {
-  background: #ffe5df;
-  color: #b24d3f;
-}
-
-.delete-button:hover {
-  background: #ffd5cc;
-}
-
-.envelope-section {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-
-  display: grid;
-  place-items: center;
-
-  padding: 24px;
-
-  background:
-    radial-gradient(circle at top, rgba(255, 232, 226, .9), transparent 38%),
-    linear-gradient(135deg, #fff8f5, #edf6f8);
-}
-
-.envelope {
-  position: relative;
-
-  width: min(430px, 92vw);
-  height: min(760px, 86vh);
-
-  border: 0;
-  border-radius: 34px;
-
-  overflow: hidden;
-  padding: 0;
-
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.22), rgba(180,120,110,.08)),
-    linear-gradient(135deg, #f1cfc9, #e8b8ae);
-
-  box-shadow:
-    0 45px 110px rgba(38,63,77,.22),
-    inset 0 1px 0 rgba(255,255,255,.45);
-
-  cursor: pointer;
-}
-
-.envelope::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background-image:
-    radial-gradient(circle at 22% 18%, rgba(255,255,255,.34) 0 2px, transparent 3px),
-    radial-gradient(circle at 78% 24%, rgba(255,255,255,.25) 0 2px, transparent 3px),
-    linear-gradient(135deg, transparent 48%, rgba(255,255,255,.22) 49%, transparent 51%),
-    linear-gradient(45deg, transparent 48%, rgba(120,70,60,.08) 49%, transparent 51%);
-
-  opacity: .85;
-  pointer-events: none;
-}
-
-.envelope::after {
-  content: "Tocca per aprire l'invito";
-
-  position: absolute;
-  bottom: 34px;
-  left: 0;
-  right: 0;
-
-  text-align: center;
-
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 13px;
-  letter-spacing: .08em;
-
-  color: rgba(38,63,77,.58);
-}
-
-.envelope-flap {
-  position: absolute;
-  inset: 0 0 auto 0;
-
-  height: 56%;
-
-  background:
-    linear-gradient(160deg, rgba(255,255,255,.26), transparent 35%),
-    linear-gradient(135deg, #f4d8d2, #e2aaa0);
-
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-
-  z-index: 3;
-
-  transform-origin: top;
-  transition: transform 1.1s cubic-bezier(.22,.61,.36,1);
-
-  box-shadow:
-    inset 0 -14px 28px rgba(90,40,35,.08);
-}
-
-.envelope-side-left,
-.envelope-side-right {
-  position: absolute;
-  bottom: 0;
-  width: 55%;
-  height: 62%;
-  background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0));
-  z-index: 2;
-}
-
-.envelope-side-left {
-  left: 0;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.envelope-side-right {
-  right: 0;
-  clip-path: polygon(100% 0, 0 50%, 100% 100%);
-}
-
-.envelope-body {
-  position: absolute;
-  inset: 0;
-
-  display: grid;
-  place-items: center;
-
-  z-index: 4;
-}
-
-.seal {
-  width: 130px;
-  height: 130px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(circle at 30% 24%, #fff9f6, #f1d0c8 38%, #d99a90 75%);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: "Great Vibes", cursive;
-  font-size: 64px;
-  color: white;
-
-  text-shadow: 0 2px 4px rgba(100,50,45,.28);
-
-  box-shadow:
-    inset 0 5px 14px rgba(255,255,255,.62),
-    inset 0 -12px 18px rgba(120,70,60,.18),
-    0 22px 40px rgba(120,70,60,.22);
-
-  border: 5px solid rgba(255,255,255,.34);
-}
-
-.seal-text {
-  font-family: "Yellowtail", cursive;
-  font-size: 88px;
-  color: rgba(255,255,255,.95);
-}
-
-.open-text {
-  position: absolute;
-  bottom: 96px;
-
-  width: 100%;
-
-  text-align: center;
-  text-transform: uppercase;
-
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .18em;
-
-  color: rgba(38,63,77,.60);
-}
-
-.envelope-cover {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #f7bfae;
-}
-
-.envelope-cover-button {
-  width: 100vw;
-  height: 100dvh;
-  border: 0;
-  padding: 0;
-  border-radius: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: none;
-}
-
-.envelope-cover-button:hover {
-  background-color: transparent;
-}
-
-.invite-content.closed {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-}
-
-.invite-content.open {
-  opacity: 1;
-  max-height: 5000px;
-  transition: opacity .8s ease;
-}
-
 
 .rsvp-form input,
 .rsvp-form select,
 .rsvp-form textarea {
-  font-family: "Reenie Beanie", cursive;
-  font-size: 28px;
-  font-weight: 400;
+  font-family: "LXGW WenKai TC", serif;
+  font-size: clamp(22px, 5vw, 30px);
   color: var(--blue-dark);
 }
 
-@keyframes envelopeBreath {
-  0%,100% {
-    transform: scale(1);
-  }
+/* =========================
+   MODAL IBAN
+========================= */
 
-  50% {
-    transform: scale(1.015);
-  }
+.gift-modal p {
+  font-family: "Kalam", cursive;
+  font-size: clamp(24px, 5vw, 32px);
+  line-height: 1.3;
 }
+
+.iban-label {
+  font-family: "Allura", cursive;
+  font-size: clamp(36px, 6vw, 48px);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--blue-dark);
+}
+
+.iban-value {
+  font-family: "LXGW WenKai TC", serif;
+  letter-spacing: 1px;
+  font-size: clamp(20px, 4vw, 28px);
+  word-break: break-all;
+}
+
+.beneficiary {
+  font-family: "Original Surfer", cursive;
+  font-size: clamp(28px, 6vw, 42px);
+  line-height: 1.25;
+  color: var(--blue-dark);
+}
+
+/* =========================
+   RISPOSTA SALVATA
+========================= */
+
+.saved-rsvp-card h2,
+.saved-status {
+  font-family: "Original Surfer", cursive;
+}
+
+.saved-text,
+.success {
+  font-family: "Kalam", cursive;
+}
+
+/* =========================
+   MOBILE ONLY
+========================= */
 
 @media (max-width: 800px) {
 
@@ -750,94 +181,9 @@ td {
     border-radius: 28px 28px 0 0;
   }
 
-  .stats-grid, .two-columns {
+  .stats-grid,
+  .two-columns {
     grid-template-columns: 1fr;
   }
 
-  html,
-body,
-#root,
-button,
-input,
-textarea,
-select,
-table,
-td,
-a {
-  font-family: "Reenie Beanie", cursive;
-}
-
-body {
-  font-size: 26px;
-  line-height: 1.35;
-}
-
-.event-box h4,
-.iban-label,
-.rsvp-form label,
-.gift-button {
-    font-family: "Allura", cursive;
-}
-
-.event-box h4 {
-    align-self: center;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.subtitle,
-.guest-hi,
-.event-box p,
-.maps-button,
-.success,
-.gift-modal p {
-    font-family: "Kalam", cursive;
-}
-
-h1,
-h2,
-.beneficiary {
-    font-family: "Original Surfer", cursive;
-}
-
-.saved-status{
-    font-family: "Original Surfer", cursive;
-}
-
-body,
-button,
-input,
-textarea,
-select,
-table,
-.stats-grid,
-.admin-page {
-    font-family: "LXGW WenKai TC", serif;
-}
-
-.iban-value{
-    font-family: "LXGW WenKai TC", serif;
-    letter-spacing: 1px;
-    font-size: 1.15rem;
-}
-
-.date,
-.couple-title,
-.couple-ampersand {
-  color: #d99582;
-}
-
-.date {
-  font-family: "Kalam", cursive;
-  font-size: clamp(34px, 6vw, 48px);
-}
-
-.couple-title {
-  font-family: "Original Surfer", cursive;
-}
-
-.couple-ampersand {
-  font-family: "Allura", cursive;
-  font-size: 1.25em;
-}
 }
