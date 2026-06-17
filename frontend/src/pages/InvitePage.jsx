@@ -67,8 +67,7 @@ export default function InvitePage() {
         />
       </div>
 
-      <p>Save the date</p>
-
+      <p className="save-date">Save the date</p>
       <h1 className="couple-title">
         Martina
       <span className="couple-ampersand"> & </span>
