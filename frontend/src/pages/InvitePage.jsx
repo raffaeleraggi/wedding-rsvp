@@ -67,7 +67,7 @@ export default function InvitePage() {
         />
       </div>
 
-      <p className="save-date">Save the date</p>
+      <p>Save the date</p>
 
       <h1 className="couple-title">
         Martina
@@ -75,7 +75,7 @@ export default function InvitePage() {
         Riccardo
       </h1>
       <p>Siamo felici di invitarti al nostro matrimonio</p>
-      <h2>18 settembre 2026</h2>
+      <p className="date">18 settembre 2026</p>
 
       <div className="event-box">
         <h4>Celebrazione</h4>
