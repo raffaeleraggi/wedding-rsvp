@@ -68,7 +68,9 @@ export default function InvitePage() {
       <p className="save-date">Save the date</p>
       <h1 className="couple-title">
         Martina
-      <span className="couple-ampersand"> & </span>
+        <br />
+          &
+        <br />
         Riccardo
       </h1>
       <h4 className="invite-subtitle">Siamo felici di invitarti al nostro matrimonio</h4>
@@ -104,7 +106,7 @@ export default function InvitePage() {
       </div>
 
       <p className="guest-hi">
-        Ciao {guest.name}, conferma qui la tua presenza.
+        Ciao {guest.name} conferma qui la tua presenza.
       </p>
 
       {saved && (

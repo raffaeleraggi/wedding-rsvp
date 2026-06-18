@@ -675,18 +675,26 @@ td {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #f7bfae;
+  background: #eef6f8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .envelope-cover-button {
-  width: 100vw;
-  height: 100dvh;
+  width: min(430px, 100vw);
+  height: min(760px, 100dvh);
+
   border: 0;
   padding: 0;
   border-radius: 0;
-  background-size: cover;
+
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: transparent;
+
   box-shadow: none;
 }
 
@@ -806,11 +814,6 @@ table,
   font-family: "Original Surfer", cursive;
 }
 
-.couple-ampersand {
-  font-family: "Allura", cursive;
-  font-size: 1.25em;
-}
-
 .invite-subtitle{
   font-family: "Kalam", cursive;
   color: var(--blue-dark);
@@ -882,6 +885,12 @@ table,
 
   .stats-grid, .two-columns {
     grid-template-columns: 1fr;
+  }
+
+   .envelope-cover-button {
+    width: 100vw;
+    height: 100dvh;
+    background-size: cover;
   }
 
 
