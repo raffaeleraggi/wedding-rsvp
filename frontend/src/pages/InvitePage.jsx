@@ -107,7 +107,7 @@ export default function InvitePage() {
 
       {!alreadyAnswered && (
   <p className="guest-hi">
-    Ciao {guest.name}, conferma qui la tua presenza.
+    Ciao {guest.name} conferma qui la tua presenza.
   </p>
 )}
 
