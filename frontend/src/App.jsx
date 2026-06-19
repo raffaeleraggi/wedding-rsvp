@@ -7,7 +7,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/admin" replace />} />
       <Route path="/admin" element={<DashboardPage />} />
-      <Route path="/i/:token" element={<InvitePage />} />
+      <Route path="/invitati/:token" element={<InvitePage />} />
     </Routes>
   );
 }
