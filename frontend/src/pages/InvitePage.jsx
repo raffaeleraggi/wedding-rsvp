@@ -124,11 +124,7 @@ export default function InvitePage() {
             ✓
           </div>
 
-          <h2>Risposta già registrata</h2>
-
-          <p className="saved-text">
-            Abbiamo già salvato la tua risposta.
-          </p>
+          <h2>Abbiamo già salvato la tua risposta.</h2>
 
           <div className="saved-status">
             {guest.status === "CONFERMATO"
