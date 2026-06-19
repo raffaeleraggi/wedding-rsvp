@@ -9,7 +9,7 @@ public class FrontendController {
     @GetMapping(value = {
             "/",
             "/admin",
-            "/i/{token}"
+            "/invitati/{token}"
     })
     public String forward() {
         return "forward:/index.html";

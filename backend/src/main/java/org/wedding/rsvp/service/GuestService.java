@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -46,6 +47,7 @@ public class GuestService {
                 .phone(request.getPhone())
                 .additionalGuests(request.getAdditionalGuests())
                 .status(RsvpStatus.IN_ATTESA)
+                .shortCode(generateShortCode())
                 .build();
 
         return toAdminDto(guestRepository.save(guest));
@@ -53,7 +55,7 @@ public class GuestService {
 
     @Transactional(readOnly = true)
     public GuestInviteDto findInvite(String token) {
-        GuestEntity guest = findByToken(token);
+        GuestEntity guest = findByShortCode(token);
 
         return GuestInviteDto.builder()
                 .name(guest.getName())
@@ -76,7 +78,7 @@ public class GuestService {
 
     @Transactional
     public GuestInviteDto reply(String token, GuestReplyRequest request) {
-        GuestEntity guest = findByToken(token);
+        GuestEntity guest = findByShortCode(token);
 
         guest.setStatus(request.getStatus());
         guest.setAdditionalGuests(request.getAdditionalGuests() == null ? 1 : request.getAdditionalGuests());
@@ -176,6 +178,11 @@ public class GuestService {
                 .orElseThrow(() -> new IllegalArgumentException("Invito non trovato"));
     }
 
+    public GuestEntity findByShortCode(String codice) {
+        return guestRepository.findByShortCode(codice)
+                .orElseThrow(() -> new IllegalArgumentException("Invito non trovato"));
+    }
+
     private GuestAdminDto toAdminDto(GuestEntity guest) {
         String inviteUrl = buildInviteUrl(guest);
 
@@ -197,13 +204,20 @@ public class GuestService {
     }
 
     private String buildInviteUrl(GuestEntity guest) {
-        return frontendBaseUrl + "/i/" + guest.getToken();
+        return frontendBaseUrl + "/invitati/" + guest.getShortCode();
     }
 
     private String buildWhatsappLink(GuestEntity guest, String inviteUrl) {
         String phone = guest.getPhone() == null ? "" : guest.getPhone().replaceAll("[^0-9]", "");
-        String text = "Ciao " + guest.getName() + "! Siamo felici di invitarti al nostro matrimonio. Conferma qui la tua presenza: " + inviteUrl;
-        return "https://wa.me/" + phone + "?text=" + URLEncoder.encode(text, StandardCharsets.UTF_8);
+        String message = """
+            Ciao  %s 💙
+
+            Siamo felici di invitarti al nostro matrimonio.
+
+            Apri la tua partecipazione qui:
+            %s
+            """.formatted(guest.getName(), inviteUrl);
+        return "https://wa.me/" + phone + "?text=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
     }
 
     private String get(CSVRecord record, String column) {
@@ -224,6 +238,42 @@ public class GuestService {
         } catch (NumberFormatException e) {
             return 1;
         }
+    }
+
+    private String generateShortCode() {
+
+        String chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        SecureRandom random = new SecureRandom();
+
+        String code;
+
+        do {
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < 6; i++) {
+                sb.append(chars.charAt(random.nextInt(chars.length())));
+            }
+
+            code = sb.toString();
+
+        } while (guestRepository.existsByShortCode(code));
+
+        return code;
+    }
+
+    @Transactional
+    public void populateShortCodes() {
+
+        List<GuestEntity> guests = guestRepository.findAll();
+
+        for (GuestEntity guest : guests) {
+            if (guest.getShortCode() == null) {
+                guest.setShortCode(generateShortCode());
+            }
+        }
+
+        guestRepository.saveAll(guests);
     }
 
 }

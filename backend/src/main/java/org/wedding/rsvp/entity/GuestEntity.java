@@ -46,6 +46,9 @@ public class GuestEntity {
     private LocalDateTime repliedAt;
     private LocalDateTime whatsappSentAt;
 
+    @Column(unique = true, nullable = false, length = 12)
+    private String shortCode;
+
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();

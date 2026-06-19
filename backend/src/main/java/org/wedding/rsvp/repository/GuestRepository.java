@@ -11,6 +11,7 @@ public interface GuestRepository extends JpaRepository<GuestEntity, Long> {
 
     Optional<GuestEntity> findByToken(String token);
 
+
     long countByStatus(RsvpStatus status);
 
     long countByWhatsappSentTrue();
@@ -20,4 +21,8 @@ public interface GuestRepository extends JpaRepository<GuestEntity, Long> {
 
     @Query("select coalesce(sum(g.additionalGuests), 0) from GuestEntity g where g.status = :status")
     long sumAdditionalGuestsByStatus(RsvpStatus status);
+
+    boolean existsByShortCode(String shortCode);
+
+    Optional<GuestEntity> findByShortCode(String shortCode);
 }

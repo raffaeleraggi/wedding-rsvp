@@ -23,4 +23,5 @@ public class InviteController {
     public GuestInviteDto reply(@PathVariable String token, @Valid @RequestBody GuestReplyRequest request) {
         return guestService.reply(token, request);
     }
+
 }
