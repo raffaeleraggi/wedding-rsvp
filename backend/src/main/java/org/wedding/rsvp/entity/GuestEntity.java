@@ -46,7 +46,7 @@ public class GuestEntity {
     private LocalDateTime repliedAt;
     private LocalDateTime whatsappSentAt;
 
-    @Column(unique = true, nullable = false, length = 12)
+    @Column(length = 12)
     private String shortCode;
 
     @PrePersist
