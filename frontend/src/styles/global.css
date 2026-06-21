@@ -821,6 +821,94 @@ table,
   font-weight: 400;
 }
 
+html,
+body,
+#root,
+p,
+a,
+button,
+input,
+textarea,
+select,
+table,
+th,
+td,
+label {
+  font-family: "Bonheur Royale", cursive !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+.couple-title,
+.couple-ampersand,
+.save-date,
+.date,
+.event-box h4,
+.iban-label,
+.beneficiary,
+.guest-hi,
+.gift-button {
+  font-family: "Lovers Quarrel", cursive !important;
+}
+
+body {
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.couple-title {
+  font-size: clamp(70px, 16vw, 130px);
+  line-height: .85;
+}
+
+.save-date,
+.date {
+  font-size: clamp(48px, 10vw, 76px);
+}
+
+.invite-subtitle,
+.event-box p,
+.maps-button,
+.gift-modal p,
+.success {
+  font-size: clamp(30px, 6vw, 42px);
+}
+
+.event-box h4,
+.iban-label,
+.gift-button {
+  font-size: clamp(58px, 12vw, 90px);
+  font-weight: 400;
+}
+
+.guest-hi {
+  font-size: clamp(58px, 12vw, 86px);
+  line-height: .95;
+}
+
+.rsvp-form label {
+  font-size: clamp(52px, 10vw, 76px);
+  line-height: .9;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  font-size: clamp(30px, 6vw, 42px);
+}
+
+.iban-value {
+  font-size: clamp(26px, 5vw, 34px);
+  word-break: break-all;
+}
+
+.beneficiary {
+  font-size: clamp(54px, 10vw, 78px);
+  line-height: .9;
+}
+
 /* ---- Foto ingrandita ---- */
 
 .invite-image-wrapper {
