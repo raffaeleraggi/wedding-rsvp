@@ -844,9 +844,12 @@ h1,
 }
 
 .couple-title {
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(80px, 15vw, 140px);
-    line-height: .9;
+    font-family: "Parisienne", cursive;
+    font-size: clamp(90px, 15vw, 150px);
+    line-height: 0.9;
+    color: #d99582;
+    font-weight: 400;
+    text-align: center;
 }
 
 .save-date {
@@ -869,6 +872,7 @@ h1,
 .rsvp-form label {
     font-size: clamp(40px, 6vw, 55px);
 }
+
 
 /* ---- Foto ingrandita ---- */
 
