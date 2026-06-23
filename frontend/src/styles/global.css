@@ -715,88 +715,22 @@ td {
 }
 
 
-.rsvp-form input,
-.rsvp-form select,
-.rsvp-form textarea {
-  font-family: "Reenie Beanie", cursive;
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--blue-dark);
-}
-
-html,
-body,
-#root,
-button,
-input,
-textarea,
-select,
-table,
-td,
-th,
-a {
-  font-family: "Kalam", cursive;
-}
-
 body {
   font-size: 26px;
   line-height: 1.35;
 }
 
-.event-box h4,
-.iban-label,
-.rsvp-form label {
-    font-family: "Allura", cursive;
-}
 
 .gift-button{
-    font-family: "Allura", cursive;
     font-size: 20px;
     letter-spacing: .5px;
 }
 
 .event-box h4{
-    font-family: "Allura", cursive;
     color: var(--blue-dark);
     text-align: center;
     font-size: clamp(42px,8vw,68px);
     margin-bottom: 32px;
-}
-
-.subtitle,
-.guest-hi,
-.event-box p,
-.maps-button,
-.success,
-.gift-modal p {
-    font-family: "Kalam", cursive;
-}
-
-h1,
-h2,
-.beneficiary {
-    font-family: "Original Surfer", cursive;
-}
-
-.saved-status{
-    font-family: "Original Surfer", cursive;
-}
-
-body,
-button,
-input,
-textarea,
-select,
-table,
-.stats-grid,
-.admin-page {
-    font-family: "LXGW WenKai TC", serif;
-}
-
-.iban-value{
-    font-family: "LXGW WenKai TC", serif;
-    letter-spacing: 1px;
-    font-size: 1.15rem;
 }
 
 .date,
@@ -805,21 +739,6 @@ table,
   color: #d99582;
 }
 
-.date {
-  font-family: "Kalam", cursive;
-  font-size: clamp(48px, 6vw, 62px);
-}
-
-.couple-title {
-  font-family: "Original Surfer", cursive;
-}
-
-.invite-subtitle{
-  font-family: "Kalam", cursive;
-  color: var(--blue-dark);
-  font-size: clamp(28px, 5vw, 40px);
-  font-weight: 400;
-}
 
 body,
 p,
@@ -831,8 +750,9 @@ select,
 label,
 table,
 .iban-label,
+.iban-label,
 .gift-button,
-.event-box {
+.event-box p {
     font-family: "Caveat", serif;
 }
 
