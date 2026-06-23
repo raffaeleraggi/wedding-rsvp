@@ -86,7 +86,7 @@ export default function InvitePage() {
           rel="noopener noreferrer"
           className="maps-button"
         >
-          ✨ Come arrivare
+          ✧ Come arrivare
         </a>
       </div>
 
@@ -101,7 +101,7 @@ export default function InvitePage() {
           rel="noopener noreferrer"
           className="maps-button"
         >
-          ✨ Come arrivare
+          ✧ Come arrivare
         </a>
       </div>
 
@@ -122,7 +122,7 @@ export default function InvitePage() {
 
           <div className="saved-status">
             {guest.status === "CONFERMATO"
-              ? "Parteciperai al matrimonio ❤️"
+              ? "Parteciperai al matrimonio ༶♡༶"
               : "Non potrai partecipare"}
           </div>
 
@@ -206,7 +206,7 @@ export default function InvitePage() {
         className="gift-button"
         onClick={() => setShowGift(true)}
       >
-        🎁 Un pensiero per gli sposi 🎁
+        ❀ Un pensiero per gli sposi ❀
       </button>
 </div>
     </section>
@@ -223,11 +223,11 @@ export default function InvitePage() {
             ×
           </button>
 
-          <h2>🎁</h2>
+          <h2>❀</h2>
 
           <p>
             La vostra presenza, sarà per noi la gioia più grande.
-            Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ❤️
+            Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ༶♡༶
           </p>
 
 <div className="iban-box">
