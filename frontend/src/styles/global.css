@@ -731,6 +731,7 @@ select,
 label,
 table,
 .iban-label,
+.iban-value,
 .gift-button,
 .event-box p {
     font-family: "Caveat", serif;
@@ -740,7 +741,7 @@ h1,
 .save-date,
 .date,
 .event-box h4,
-.gift-modal,
+.gift-modal
 .beneficiary {
     font-family: "Great Vibes", cursive;
 }
