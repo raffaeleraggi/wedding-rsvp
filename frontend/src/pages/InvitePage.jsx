@@ -111,12 +111,6 @@ export default function InvitePage() {
   </p>
 )}
 
-      {saved && (
-        <div className="success">
-          Risposta salvata correttamente.
-        </div>
-      )}
-
       {alreadyAnswered ? (
         <div className="saved-rsvp-card">
 
@@ -199,6 +193,12 @@ export default function InvitePage() {
           </button>
 
         </form>
+      )}
+
+            {saved && (
+        <div className="success">
+          Risposta salvata correttamente.
+        </div>
       )}
 
       <button
