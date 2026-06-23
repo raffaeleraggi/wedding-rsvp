@@ -1,17 +1,7 @@
-html,
-body,
-input,
-textarea,
-select,
-button,
-table,
-#root {
-  font-family: "Reenie Beanie", cursive;
-}
+
 
 :root {
 
-  font-family: "Reenie Beanie", cursive;
   --blue: #42687a;
   --blue-dark: #263f4d;
   --peach: #f4b6a6;
@@ -32,7 +22,6 @@ table,
 
 body {
   margin: 0;
-  font-family: "Reenie Beanie", cursive;
   font-weight: 400;
   color: #31475b;
   visibility: hidden;
@@ -55,7 +44,6 @@ button {
   color: white;
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
-  font-family: "Reenie Beanie", cursive;
   font-weight: 600;
   letter-spacing: .03em;
 }
@@ -72,7 +60,6 @@ input, textarea, select {
   background: white;
   color: var(--text);
   font: inherit;
-  font-family: "Reenie Beanie", cursive;
   font-size: 32px;
   font-weight: 400;
 }
@@ -84,14 +71,10 @@ input:focus, textarea:focus, select:focus {
 
 input::placeholder,
 textarea::placeholder {
-  font-family: "Reenie Beanie", cursive;
   font-size: 30px;
   color: #9aa4b2;
 }
 
-select option {
-  font-family: "Reenie Beanie", cursive;
-}
 
 textarea {
   min-height: 90px;
@@ -118,7 +101,6 @@ textarea {
 }
 
 .eyebrow {
-  font-family: "Reenie Beanie", cursive;
   font-size: 34px;
   color: #d9a08f;
   letter-spacing: 0;
@@ -187,12 +169,12 @@ th, td {
 
 th {
   color: var(--blue-dark);
-  font-family: "Kalam", cursive;
+  font-family: "Caveat", serif;
   font-weight: 700;
 }
 
 td {
-  font-family: "Kalam", cursive;
+  font-family: "Caveat", serif;
   font-weight: 400;
 }
 
@@ -268,7 +250,6 @@ td {
 
 
 .guest-hi {
-  font-family: "Zeyada", cursive;
   font-size: clamp(48px, 7vw, 68px);
   line-height: 1.15;
   color: var(--blue-dark);
@@ -563,7 +544,7 @@ td {
 
   text-align: center;
 
-  font-family: Georgia, serif;
+  font-family: "Caveat", serif;
   font-style: italic;
   font-size: 13px;
   letter-spacing: .08em;
