@@ -829,7 +829,10 @@ input,
 textarea,
 select,
 label,
-table {
+table,
+.iban-label,
+.gift-button,
+.event-box {
     font-family: "Caveat", serif;
 }
 
@@ -837,8 +840,6 @@ h1,
 .save-date,
 .date,
 .event-box h4,
-.iban-label,
-.gift-button,
 .beneficiary {
     font-family: "Great Vibes", cursive;
 }
