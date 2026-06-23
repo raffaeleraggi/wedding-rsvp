@@ -630,11 +630,6 @@ td {
   border: 5px solid rgba(255,255,255,.34);
 }
 
-.seal-text {
-  font-family: "Yellowtail", cursive;
-  font-size: 88px;
-  color: rgba(255,255,255,.95);
-}
 
 .open-text {
   position: absolute;
@@ -768,7 +763,7 @@ h1,
 }
 
 .invite-subtitle {
-    font-family: "Allura", cursive;
+    font-family: "Caveat", serif;
     font-size: clamp(38px, 6vw, 55px);
 }
 
