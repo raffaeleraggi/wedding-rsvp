@@ -408,7 +408,7 @@ td {
 
 .rsvp-form label {
   font-family: var(--font-title);
-  font-size: 52px;
+  font-size: 34px;
   line-height: 1;
   color: var(--blue-dark);
   margin-top: 10px;
@@ -720,7 +720,7 @@ td {
   }
 
   .gift-button {
-    font-size: 38px;
+    font-size: 30px;
   }
 
   .stats-grid,
@@ -753,4 +753,17 @@ td {
     right: 15px;
     font-size: 40px;
   }
+
+  .iban-copy-btn {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.gift-divider {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--peach);
+  margin: 20px 0;
+}
 }
