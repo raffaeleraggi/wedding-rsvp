@@ -362,6 +362,10 @@ td {
   margin: 14px 0;
 }
 
+.event-box a {
+  font-size: 24px;
+}
+
 .event-box p strong {
   font-weight: 700;
 }
@@ -496,14 +500,22 @@ td {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.45);
-  display: grid;
-  place-items: center;
-  padding: 24px;
   z-index: 999;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gift-modal {
   width: min(460px, 100%);
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+
   background: white;
   border-radius: 28px;
   padding: 24px;
@@ -543,7 +555,7 @@ td {
 
 .iban-label {
   font-family: var(--font-title);
-  font-size: 48px;
+  font-size: 34px;
   color: var(--blue-dark);
   margin-top: 10px;
 }
@@ -710,7 +722,7 @@ td {
   }
 
   .rsvp-form label {
-    font-size: 48px;
+    font-size: 34px;
   }
 
   .rsvp-form input,
@@ -766,4 +778,26 @@ td {
   color: var(--peach);
   margin: 20px 0;
 }
+
+  .modal-overlay {
+    padding: 14px;
+  }
+
+  .gift-modal {
+    max-height: calc(100dvh - 28px);
+    padding: 22px 18px;
+  }
+
+  .gift-modal p {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .iban-label {
+    font-size: 42px;
+  }
+
+  .beneficiary {
+    font-size: 38px;
+  }
 }
