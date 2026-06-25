@@ -58,12 +58,12 @@ export default function InvitePage() {
   </div>
 )}
 
-   <div className="invite-image-wrapper"
+<div className={`invite-content ${envelopeOpen ? "open" : "closed"}`}>
+
+      <div className="invite-image-wrapper"
         onClick={() => setShowPhoto(true)}>
           <img src={headerImage} alt="Martina e Riccardo" className="invite-image"/>
       </div>
-
-<div className={`invite-content ${envelopeOpen ? "open" : "closed"}`}>
 
       <p className="save-date">Save the date</p>
       <h1 className="couple-title">
