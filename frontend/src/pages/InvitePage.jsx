@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api.js";
-import headerImage from "../assets/header.jpeg";
+import headerImage from "../assets/header2.jpeg";
 import envelopeBg from "../assets/envelop-bg-blu.png";
 
 export default function InvitePage() {
@@ -230,6 +230,8 @@ export default function InvitePage() {
             Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ♡
           </p>
 
+          <div class="gift-divider">❀</div>
+
 <div className="iban-box">
   <div className="iban-label">IBAN</div>
 
@@ -238,7 +240,7 @@ export default function InvitePage() {
   </div>
 
   <div className="iban-label">
-    Beneficiario
+    Intestato a:
   </div>
 
   <div className="beneficiary">
@@ -251,6 +253,7 @@ export default function InvitePage() {
 
   <button
     type="button"
+    className="iban-copy-btn "
     onClick={() =>
       navigator.clipboard.writeText(
         "IT63C0366901600474478451042"
