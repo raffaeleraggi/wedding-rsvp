@@ -288,7 +288,7 @@ td {
 
 .invite-image-wrapper {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
   border-radius: 36px 36px 0 0;
   cursor: pointer;
 }
@@ -297,6 +297,7 @@ td {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
   border-radius: 32px 32px 0 0;
 }
 
@@ -663,19 +664,27 @@ td {
 
   .invite-card {
     width: min(100%, 620px);
-    padding: 28px;
+    padding: 0;
     border-radius: 28px;
+    overflow: hidden;
   }
 
   .invite-image-wrapper {
-    margin: -28px -28px 20px;
+    margin: 0;
     border-radius: 28px 28px 0 0;
+    overflow: hidden;
   }
 
   .invite-image {
-    height: 230px;
-    object-fit: cover;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    display: block;
     border-radius: 28px 28px 0 0;
+  }
+
+  .invite-content {
+    padding: 28px;
   }
 
   .save-date {
