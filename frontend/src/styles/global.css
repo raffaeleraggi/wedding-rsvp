@@ -281,13 +281,19 @@ td {
 .invite-card {
   width: min(720px, 100%);
   border-radius: 36px;
-  padding: 56px;
+  padding: 0;
   text-align: center;
+  overflow: hidden;
+}
+
+.invite-content {
+  padding: 56px;
 }
 
 .invite-image-wrapper {
-  overflow: hidden;
-  border-radius: 32px 32px 0 0;
+  width: 100%;
+  overflow: visible;
+  border-radius: 36px 36px 0 0;
   cursor: pointer;
 }
 
@@ -554,7 +560,7 @@ td {
 }
 
 .iban-label {
-  font-family: var(--font-title);
+  font-family: var(--font-main);
   font-size: 34px;
   color: var(--blue-dark);
   margin-top: 10px;
