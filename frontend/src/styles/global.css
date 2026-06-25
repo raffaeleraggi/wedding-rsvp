@@ -386,7 +386,7 @@ td {
   color: white !important;
   text-decoration: none;
   font-family: var(--font-main);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
   transition: .2s;
