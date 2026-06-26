@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api.js";
-import headerImage from "../assets/header2.jpeg";
+import headerImage from "../assets/header-new.jpeg";
 import envelopeBg from "../assets/informal-envelope.png";
 
 export default function InvitePage() {
