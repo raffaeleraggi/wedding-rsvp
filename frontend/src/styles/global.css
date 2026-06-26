@@ -362,6 +362,7 @@ td {
 .event-box p {
   font-family: var(--font-main);
   color: var(--blue-dark);
+  text-align: center;
   font-size: 28px;
   line-height: 1.25;
   margin: 14px 0;
@@ -574,7 +575,7 @@ td {
 }
 
 .beneficiary {
-  font-family: var(--font-couple);
+  font-family: var(--font-title);
   font-size: 34px;
   line-height: 1.05;
   color: var(--blue-dark);
