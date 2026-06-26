@@ -10,8 +10,8 @@
   --border: rgba(66, 104, 122, 0.16);
   --shadow: 0 18px 50px rgba(38, 63, 77, 0.10);
 
-  --font-main: "Caveat", cursive;
-  --font-title: "Great Vibes", cursive;
+  --font-main: "Caveat", serif;
+  --font-title: "Allura", cursive;
   --font-couple: "Parisienne", cursive;
 }
 
@@ -29,7 +29,7 @@ body {
   color: var(--text);
   background: var(--cream);
   font-family: var(--font-main);
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.35;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -54,7 +54,7 @@ button {
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
   font-family: var(--font-main);
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -72,7 +72,7 @@ select {
   background: white;
   color: var(--text);
   font-family: var(--font-main);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -85,7 +85,7 @@ select:focus {
 
 input::placeholder,
 textarea::placeholder {
-  font-size: 24px;
+  font-size: 18px;
   color: #9aa4b2;
 }
 
@@ -129,11 +129,13 @@ textarea {
   font-size: 58px;
   line-height: 1;
   margin: 0;
+  font-size: 46px;
 }
 
 .card h2 {
   font-size: 46px;
   margin: 0 0 16px;
+  font-size: 36px;
 }
 
 .eyebrow {
@@ -206,12 +208,12 @@ td {
 
 th {
   color: var(--blue-dark);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 td {
-  font-size: 23px;
+  font-size: 18px;
   font-weight: 400;
 }
 
@@ -303,7 +305,7 @@ td {
 
 .save-date {
   font-family: var(--font-title);
-  font-size: 64px;
+  font-size: 52px;
   line-height: 1;
   color: var(--blue-dark);
   margin: 48px 0 34px;
@@ -311,7 +313,7 @@ td {
 
 .couple-title {
   font-family: var(--font-couple);
-  font-size: 108px;
+  font-size: 92px;
   line-height: 0.9;
   font-weight: 400;
   text-align: center;
@@ -321,7 +323,7 @@ td {
 
 .invite-subtitle {
   font-family: var(--font-main);
-  font-size: 44px;
+  font-size: 30px;
   line-height: 1.25;
   font-weight: 700;
   color: var(--blue-dark);
@@ -330,7 +332,7 @@ td {
 
 .date {
   font-family: var(--font-title);
-  font-size: 72px;
+  font-size: 54px;
   line-height: 1;
   color: var(--peach);
   margin: 0 0 52px;
@@ -339,8 +341,8 @@ td {
 /* EVENT BOX */
 
 .event-box {
-  margin: 28px 0;
-  padding: 28px;
+  margin: 22px 0;
+  padding: 22px;
   border-radius: 24px;
   background: var(--peach-soft);
   border: 1px solid rgba(244, 182, 166, 0.45);
@@ -351,7 +353,7 @@ td {
   font-family: var(--font-title);
   color: var(--blue-dark);
   text-align: center;
-  font-size: 76px;
+  font-size: 54px;
   font-weight: 400;
   line-height: 1;
   margin: 0 0 32px;
@@ -360,13 +362,13 @@ td {
 .event-box p {
   font-family: var(--font-main);
   color: var(--blue-dark);
-  font-size: 40px;
+  font-size: 28px;
   line-height: 1.25;
   margin: 14px 0;
 }
 
 .event-box a {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .event-box p strong {
@@ -386,7 +388,7 @@ td {
   color: white !important;
   text-decoration: none;
   font-family: var(--font-main);
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 700;
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
   transition: .2s;
@@ -401,7 +403,7 @@ td {
 
 .guest-hi {
   font-family: var(--font-main);
-  font-size: 46px;
+  font-size: 30px;
   line-height: 1.2;
   color: var(--blue-dark);
   margin: 44px 0 24px;
@@ -415,7 +417,7 @@ td {
 
 .rsvp-form label {
   font-family: var(--font-title);
-  font-size: 34px;
+  font-size: 28px;
   line-height: 1;
   color: var(--blue-dark);
   margin-top: 10px;
@@ -425,13 +427,13 @@ td {
 .rsvp-form select,
 .rsvp-form textarea {
   font-family: var(--font-main);
-  font-size: 28px;
+  font-size: 20px;
   color: var(--blue-dark);
 }
 
 .success {
   margin: 16px 0;
-  padding: 14px;
+  padding: 22px;
   border-radius: 16px;
   background: #dbe9ee;
   color: var(--blue-dark);
@@ -454,21 +456,21 @@ td {
 }
 
 .saved-icon {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto 18px;
   border-radius: 999px;
   display: grid;
   place-items: center;
   background: #dce9ef;
   color: #35586b;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 900;
 }
 
 .saved-rsvp-card h2 {
   font-family: var(--font-title);
-  font-size: 58px;
+  font-size: 42px;
   font-weight: 400;
   color: var(--blue-dark);
   margin: 0 0 12px;
@@ -476,13 +478,13 @@ td {
 
 .saved-text {
   color: #70838e;
-  font-size: 30px;
+  font-size: 22px;
 }
 
 .saved-status {
   margin: 18px 0;
   font-family: var(--font-main);
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   color: #35586b;
 }
@@ -495,7 +497,7 @@ td {
   background: #f3dfd7;
   color: #35586b;
   font-family: var(--font-title);
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 400;
 }
 
@@ -528,13 +530,13 @@ td {
 }
 
 .gift-modal h2 {
-  font-size: 54px;
+  font-size: 44px;
   margin: 0;
 }
 
 .gift-modal p {
   font-family: var(--font-main);
-  font-size: 30px;
+  font-size: 22px;
   line-height: 1.25;
 }
 
@@ -558,14 +560,14 @@ td {
 
 .iban-label {
   font-family: var(--font-main);
-  font-size: 34px;
+  font-size: 24px;
   color: var(--blue-dark);
   margin-top: 10px;
 }
 
 .iban-value {
   font-family: var(--font-main);
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   word-break: break-all;
   color: var(--blue-dark);
@@ -573,7 +575,7 @@ td {
 
 .beneficiary {
   font-family: var(--font-couple);
-  font-size: 46px;
+  font-size: 34px;
   line-height: 1.05;
   color: var(--blue-dark);
 }
@@ -655,7 +657,7 @@ td {
 
 @media (max-width: 800px) {
   body {
-    font-size: 22px;
+    font-size: 17px;
   }
 
   .invite-page {
@@ -684,66 +686,66 @@ td {
   }
 
   .invite-content {
-    padding: 28px;
+    padding: 24px;
   }
 
   .save-date {
-    font-size: 52px;
-    margin: 42px 0 32px;
+    font-size: 44px;
+    margin: 32px 0 22px;
   }
 
   .couple-title {
-    font-size: 88px;
-    line-height: 0.86;
-    margin-bottom: 48px;
+    font-size: 76px;
+    line-height: 0.88;
+    margin-bottom: 34px;
   }
 
   .invite-subtitle {
-    font-size: 36px;
+    font-size: 26px;
     line-height: 1.25;
-    margin-bottom: 38px;
-  }
-
-  .date {
-    font-size: 58px;
-    margin-bottom: 48px;
-  }
-
-  .event-box {
-    padding: 24px;
-    margin: 28px 0;
-  }
-
-  .event-box h4 {
-    font-size: 62px;
     margin-bottom: 28px;
   }
 
+  .date {
+    font-size: 46px;
+    margin-bottom: 43px;
+  }
+
+  .event-box {
+    padding: 20px;
+    margin: 22px 0;
+  }
+
+  .event-box h4 {
+    font-size: 46px;
+    margin-bottom: 18px;
+  }
+
   .event-box p {
-    font-size: 34px;
+    font-size: 24px;
   }
 
   .maps-button {
-    font-size: 28px;
-    padding: 10px 20px;
+    font-size: 19px;
+    padding: 9px 18px;
   }
 
   .guest-hi {
-    font-size: 38px;
+    font-size: 26px;
   }
 
   .rsvp-form label {
-    font-size: 34px;
+    font-size: 25px;
   }
 
   .rsvp-form input,
   .rsvp-form select,
   .rsvp-form textarea {
-    font-size: 26px;
+    font-size: 19px;
   }
 
   .gift-button {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .stats-grid,
@@ -805,10 +807,10 @@ td {
   }
 
   .iban-label {
-    font-size: 42px;
+    font-size: 24px;
   }
 
   .beneficiary {
-    font-size: 38px;
+    font-size: 32px;
   }
 }
