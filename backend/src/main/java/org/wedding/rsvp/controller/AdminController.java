@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.wedding.rsvp.dto.CreateGuestRequest;
 import org.wedding.rsvp.dto.DashboardStatsDto;
 import org.wedding.rsvp.dto.GuestAdminDto;
+import org.wedding.rsvp.dto.GuestBackupDto;
 import org.wedding.rsvp.repository.GuestRepository;
 import org.wedding.rsvp.service.GuestPdfService;
 import org.wedding.rsvp.service.GuestService;
@@ -69,6 +70,17 @@ public class AdminController {
     public ResponseEntity<Void> deleteGuest(@PathVariable Long id) {
         guestService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/guests/backup")
+    public ResponseEntity<List<GuestBackupDto>> backupGuests() {
+        return ResponseEntity.ok(guestService.backupGuests());
+    }
+
+    @PostMapping("/guests/restore")
+    public ResponseEntity<Void> restoreGuests(@RequestBody List<GuestBackupDto> guests) {
+        guestService.restoreGuests(guests);
+        return ResponseEntity.ok().build();
     }
 
 }

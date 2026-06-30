@@ -25,4 +25,6 @@ public interface GuestRepository extends JpaRepository<GuestEntity, Long> {
     boolean existsByShortCode(String shortCode);
 
     Optional<GuestEntity> findByShortCode(String shortCode);
+
+    boolean existsByToken(String token);
 }

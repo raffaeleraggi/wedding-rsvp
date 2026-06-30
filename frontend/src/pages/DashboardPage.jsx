@@ -18,16 +18,16 @@ export default function DashboardPage() {
 
   const deleteGuest = async (id, name) => {
 
-  const ok = window.confirm(
-    `Vuoi davvero eliminare ${name}?`
-  );
+    const ok = window.confirm(
+      `Vuoi davvero eliminare ${name}?`
+    );
 
-  if (!ok) return;
+    if (!ok) return;
 
-  await api.delete(`/admin/guests/${id}`);
+    await api.delete(`/admin/guests/${id}`);
 
-  await load();
-};
+    await load();
+  };
 
   const load = async () => {
     const [statsRes, guestsRes] = await Promise.all([
@@ -35,12 +35,13 @@ export default function DashboardPage() {
       api.get("/admin/guests"),
     ]);
     setStats(statsRes.data);
-  if (Array.isArray(guestsRes.data)) {
-    setGuests(guestsRes.data);
-  } else {
-    console.error("Risposta guests non valida:", guestsRes.data);
-    setGuests([]);
-  }  };
+    if (Array.isArray(guestsRes.data)) {
+      setGuests(guestsRes.data);
+    } else {
+      console.error("Risposta guests non valida:", guestsRes.data);
+      setGuests([]);
+    }
+  };
 
   useEffect(() => {
     load();
@@ -74,39 +75,71 @@ export default function DashboardPage() {
   };
 
   const exportPdf = async () => {
-  const res = await api.get("/admin/guests/export-pdf", {
-    responseType: "blob",
+    const res = await api.get("/admin/guests/export-pdf", {
+      responseType: "blob",
+    });
+
+    const url = window.URL.createObjectURL(new Blob([res.data]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "invitati.pdf");
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
+  const filteredGuests = guests.filter((guest) => {
+    const fullName = `${guest.name ?? ""} ${guest.surname ?? ""}`.toLowerCase();
+    const phone = `${guest.phone ?? ""}`.toLowerCase();
+    const status = `${guest.status ?? ""}`.toLowerCase();
+
+    const value = search.toLowerCase();
+
+    return (
+      fullName.includes(value) ||
+      phone.includes(value) ||
+      status.includes(value)
+    );
   });
 
-  const url = window.URL.createObjectURL(new Blob([res.data]));
-  const link = document.createElement("a");
-  link.href = url;
-  link.setAttribute("download", "invitati.pdf");
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-};
+  const backupGuests = async () => {
+    const res = await api.get("/admin/guests/backup");
 
-const filteredGuests = guests.filter((guest) => {
-  const fullName = `${guest.name ?? ""} ${guest.surname ?? ""}`.toLowerCase();
-  const phone = `${guest.phone ?? ""}`.toLowerCase();
-  const status = `${guest.status ?? ""}`.toLowerCase();
+    const blob = new Blob([JSON.stringify(res.data, null, 2)], {
+      type: "application/json",
+    });
 
-  const value = search.toLowerCase();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
 
-  return (
-    fullName.includes(value) ||
-    phone.includes(value) ||
-    status.includes(value)
-  );
-});
+    link.href = url;
+    link.download = "backup-invitati.json";
+    link.click();
+
+    window.URL.revokeObjectURL(url);
+  };
+
+  const restoreGuests = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const text = await file.text();
+    const guests = JSON.parse(text);
+
+    if (!window.confirm("Vuoi ripristinare questi invitati?")) {
+      return;
+    }
+
+    await api.post("/admin/guests/restore", guests);
+    await load();
+  };
 
   return (
     <main className="admin-page">
       <section className="hero-panel">
         <div>
-          <h2 className="couple-title">Martina 
-            <span> & </span> 
+          <h2 className="couple-title">Martina
+            <span> & </span>
             Riccardo</h2>
           <h1>Dashboard partecipazioni</h1>
           <p className="muted">
@@ -127,33 +160,47 @@ const filteredGuests = guests.filter((guest) => {
           <h2>Aggiungi invitato</h2>
 
           <input placeholder="Nome" value={form.name}
-                 onChange={(e) => setForm({ ...form, name: e.target.value })} />
+            onChange={(e) => setForm({ ...form, name: e.target.value })} />
 
           <input placeholder="Cognome" value={form.surname}
-                 onChange={(e) => setForm({ ...form, surname: e.target.value })} />
+            onChange={(e) => setForm({ ...form, surname: e.target.value })} />
 
           <input placeholder="Telefono es. 393331234567" value={form.phone}
-                 onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+            onChange={(e) => setForm({ ...form, phone: e.target.value })} />
 
           <button>Aggiungi</button>
         </form>
 
-       
+
       </section>
 
       <section className="card form-card">
         <h2>Invitati</h2>
 
         <input
-  className="search-input"
-  placeholder="Cerca invitato per nome o cognome"
-  value={search}
-  onChange={(e) => setSearch(e.target.value)}
-/>
+          className="search-input"
+          placeholder="Cerca invitato per nome o cognome"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
-         <button type="card" onClick={exportPdf}>
+        <button type="card" onClick={exportPdf}>
           Esporta Lista Invitati
         </button>
+
+        <button type="button" onClick={backupGuests}>
+          Backup invitati
+        </button>
+
+        <label className="restore-button">
+          Restore invitati
+          <input
+            type="file"
+            accept="application/json"
+            onChange={restoreGuests}
+            hidden
+          />
+        </label>
 
         <div className="table-wrapper">
           <table>
@@ -181,11 +228,11 @@ const filteredGuests = guests.filter((guest) => {
                       <button type="button" onClick={() => window.open(guest.whatsappLink, "_blank")}>
                         Invia invito
                       </button>
-                     )}
-                       <button type="button" className="delete-button" onClick={() => 
-                        deleteGuest(guest.id, `${guest.name} ${guest.surname}`)}>
-                          <Trash2 size={18} />
-                      </button>
+                    )}
+                    <button type="button" className="delete-button" onClick={() =>
+                      deleteGuest(guest.id, `${guest.name} ${guest.surname}`)}>
+                      <Trash2 size={18} />
+                    </button>
                   </td>
                 </tr>
               ))}

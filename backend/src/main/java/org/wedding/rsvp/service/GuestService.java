@@ -19,6 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -274,6 +275,56 @@ public class GuestService {
         }
 
         guestRepository.saveAll(guests);
+    }
+
+    public List<GuestBackupDto> backupGuests() {
+        return guestRepository.findAll()
+                .stream()
+                .map(this::toBackupDto)
+                .toList();
+    }
+
+    @Transactional
+    public void restoreGuests(List<GuestBackupDto> guests) {
+        for (GuestBackupDto dto : guests) {
+
+            GuestEntity guest = GuestEntity.builder()
+                    .name(dto.getName())
+                    .surname(dto.getSurname())
+                    .email(dto.getEmail())
+                    .phone(dto.getPhone())
+                    .token(dto.getToken() != null ? dto.getToken() : UUID.randomUUID().toString())
+                    .shortCode(dto.getShortCode() != null ? dto.getShortCode() : generateShortCode())
+                    .whatsappSent(Boolean.TRUE.equals(dto.getWhatsappSent()))
+                    .whatsappSentAt(dto.getWhatsappSentAt())
+                    .status(dto.getStatus() != null ? dto.getStatus() : RsvpStatus.IN_ATTESA)
+                    .additionalGuests(dto.getAdditionalGuests() != null ? dto.getAdditionalGuests() : 0)
+                    .allergies(dto.getAllergies())
+                    .message(dto.getMessage())
+                    .repliedAt(dto.getRepliedAt())
+                    .build();
+
+            guestRepository.save(guest);
+        }
+    }
+
+    private GuestBackupDto toBackupDto(GuestEntity guest) {
+        GuestBackupDto dto = new GuestBackupDto();
+
+        dto.setName(guest.getName());
+        dto.setSurname(guest.getSurname());
+        dto.setEmail(guest.getEmail());
+        dto.setPhone(guest.getPhone());
+        dto.setToken(guest.getToken());
+        dto.setShortCode(guest.getShortCode());
+        dto.setWhatsappSentAt(guest.getWhatsappSentAt());
+        dto.setStatus(guest.getStatus());
+        dto.setAdditionalGuests(guest.getAdditionalGuests());
+        dto.setAllergies(guest.getAllergies());
+        dto.setMessage(guest.getMessage());
+        dto.setRepliedAt(guest.getRepliedAt());
+
+        return dto;
     }
 
 }
