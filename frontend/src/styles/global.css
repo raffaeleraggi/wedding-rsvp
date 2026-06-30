@@ -58,6 +58,44 @@ button {
   font-weight: 700;
 }
 
+.backup-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center; /* oppure flex-start */
+    flex-wrap: wrap; /* su mobile vanno a capo se manca spazio */
+    margin: 20px 0;
+}
+
+.backup-actions button,
+.backup-actions .restore-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 22px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: var(--blue);
+    color: #fff;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    font-family: "Caveat", cursive;
+    font-size: 1.6rem;
+
+    transition: .2s;
+}
+
+.backup-actions button:hover,
+.backup-actions .restore-button:hover {
+    transform: translateY(-2px);
+    opacity: .95;
+}
+
 button:hover {
   background: var(--blue-dark);
 }

@@ -184,15 +184,22 @@ export default function DashboardPage() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <button type="card" onClick={exportPdf}>
-          Esporta Lista Invitati
-        </button>
+        <div className="backup-actions">
+          <button type="button" onClick={backupGuests}>
+            💾 Backup invitati
+          </button>
 
-        <button type="button" onClick={backupGuests}>
-          Backup invitati
-        </button>
-
-        <label className="restore-button">
+          <label className="restore-button">
+            ♻️ Restore invitati
+            <input
+              type="file"
+              accept="application/json"
+              onChange={restoreGuests}
+              hidden
+            />
+          </label>
+        </div>
+        <label type="button">
           Restore invitati
           <input
             type="file"
