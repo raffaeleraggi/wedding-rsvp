@@ -230,8 +230,6 @@ export default function InvitePage() {
             Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ♡
           </p>
 
-          <div class="gift-divider">❀</div>
-
 <div className="iban-box">
   <div className="iban-label">IBAN</div>
 

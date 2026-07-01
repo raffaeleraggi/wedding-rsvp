@@ -10,7 +10,7 @@
   --border: rgba(66, 104, 122, 0.16);
   --shadow: 0 18px 50px rgba(38, 63, 77, 0.10);
 
-  --font-main: "Lora", sans-serif;
+  --font-main: "Lora", serif;
   --font-title: "Allura", cursive;
   --font-couple: "Parisienne", cursive;
 
@@ -389,7 +389,7 @@ td {
 }
 
 .event-box h4 {
-  font-family: var(--font-title);
+  font-family: var(--font-main);
   color: var(--blue-dark);
   text-align: center;
   font-size: 54px;
@@ -399,7 +399,7 @@ td {
 }
 
 .event-box p {
-  font-family: var(--font-main);
+  font-family: var(--font-title);
   color: var(--blue-dark);
   text-align: center;
   font-size: 28px;
@@ -428,7 +428,7 @@ td {
   color: white !important;
   text-decoration: none;
   font-family: var(--font-main);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
   transition: .2s;
@@ -509,7 +509,7 @@ td {
 }
 
 .saved-rsvp-card h2 {
-  font-family: var(--font-title);
+  font-family: var(--font-main);
   font-size: 42px;
   font-weight: 400;
   color: var(--blue-dark);
@@ -523,7 +523,7 @@ td {
 
 .saved-status {
   margin: 18px 0;
-  font-family: var(--font-main);
+  font-family: var(--font-title);
   font-size: 24px;
   font-weight: 700;
   color: #35586b;
@@ -599,7 +599,7 @@ td {
 }
 
 .iban-label {
-  font-family: var(--font-main);
+  font-family: var(--font-title);
   font-size: 24px;
   color: var(--blue-dark);
   margin-top: 10px;
