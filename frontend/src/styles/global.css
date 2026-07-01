@@ -407,10 +407,6 @@ td {
   margin: 14px 0;
 }
 
-.event-box a {
-  font-size: 20px;
-}
-
 .event-box p strong {
   font-weight: 700;
 }
@@ -757,12 +753,12 @@ td {
   }
 
   .event-box h4 {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 18px;
   }
 
   .event-box p {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .maps-button {
