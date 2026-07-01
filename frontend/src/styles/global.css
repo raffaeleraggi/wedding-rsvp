@@ -55,7 +55,7 @@ button {
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
   font-family: var(--font-main);
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -85,7 +85,7 @@ button {
     cursor: pointer;
     text-decoration: none;
 
-    font-family: "Caveat", cursive;
+    font-family: "Lora", serif;
     font-size: 18px;
 
     transition: .2s;
@@ -766,7 +766,7 @@ td {
   }
 
   .maps-button {
-    font-size: 15px;
+    font-size: 12px;
     padding: 9px 18px;
   }
 
