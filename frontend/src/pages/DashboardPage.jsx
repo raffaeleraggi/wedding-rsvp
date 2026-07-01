@@ -192,10 +192,15 @@ export default function DashboardPage() {
           <button type="button" onClick={backupGuests}>
             Backup invitati
           </button>
-
-          <button type="button" onClick={restoreGuests}>
+          <label className="restore-button">
             Restore invitati
-          </button>
+            <input
+              type="file"
+              accept="application/json"
+              onChange={restoreGuests}
+              hidden
+            />
+          </label>
         </div>
 
         <div className="table-wrapper">
