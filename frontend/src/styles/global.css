@@ -5,6 +5,7 @@
   --peach-light: #f4b6a6;
   --peach-soft: #fff1ec;
   --peach-middle: #f5997f;
+  --orange-peach: #ffb37a;
   --cream: #fff8f5;
   --text: #263f4d;
   --muted: #6f8490;
@@ -61,41 +62,43 @@ button {
 }
 
 .backup-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: center; /* oppure flex-start */
-    flex-wrap: wrap; /* su mobile vanno a capo se manca spazio */
-    margin: 20px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  /* oppure flex-start */
+  flex-wrap: wrap;
+  /* su mobile vanno a capo se manca spazio */
+  margin: 20px 0;
 }
 
 .backup-actions button,
 .backup-actions .restore-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: 12px 22px;
+  padding: 12px 22px;
 
-    border: none;
-    border-radius: 999px;
+  border: none;
+  border-radius: 999px;
 
-    background: var(--blue);
-    color: #fff;
+  background: var(--blue);
+  color: #fff;
 
-    cursor: pointer;
-    text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
 
-    font-family: "Lora", serif;
-    font-size: 12px;
+  font-family: "Lora", serif;
+  font-size: 12px;
 
-    transition: .2s;
+  transition: .2s;
 }
 
 .backup-actions button:hover,
 .backup-actions .restore-button:hover {
-    transform: translateY(-2px);
-    opacity: .95;
+  transform: translateY(-2px);
+  opacity: .95;
 }
 
 button:hover {
@@ -145,7 +148,9 @@ textarea {
 .card,
 .invite-card,
 .stat-card {
-  background: rgba(255, 255, 255, 0.82);
+  background: linear-gradient(200deg,
+      color-mix(in srgb, var(--orange-peach) 5%, white),
+      var(--orange-peach));
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
@@ -155,7 +160,7 @@ textarea {
   padding: 36px;
   background:
     radial-gradient(circle at top right, rgba(244, 182, 166, .55), transparent 38%),
-    linear-gradient(135deg, rgba(255,255,255,.92), rgba(238,246,248,.82));
+    linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(238, 246, 248, .82));
 }
 
 .hero-panel h1,
@@ -383,8 +388,9 @@ td {
   margin: 22px 0;
   padding: 22px;
   border-radius: 24px;
-  background: var(--peach-middle);
-  border: 1px solid rgba(244, 182, 166, 0.45);
+  background: linear-gradient(200deg,
+      color-mix(in srgb, var(--orange-peach) 5%, white),
+      var(--orange-peach));  border: 1px solid rgba(244, 182, 166, 0.45);
   text-align: left;
 }
 
@@ -485,10 +491,10 @@ td {
   padding: 28px;
   border-radius: 28px;
   background:
-    linear-gradient(135deg, rgba(255,255,255,.95), rgba(244,182,166,.16));
-  border: 1px solid rgba(66,104,122,.12);
+    linear-gradient(135deg, rgba(255, 255, 255, .95), rgba(244, 182, 166, .16));
+  border: 1px solid rgba(66, 104, 122, .12);
   text-align: center;
-  box-shadow: 0 14px 40px rgba(0,0,0,.08);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .08);
 }
 
 .saved-icon {
@@ -540,7 +546,7 @@ td {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.45);
+  background: rgba(0, 0, 0, .45);
   z-index: 999;
 
   display: flex;
@@ -562,7 +568,7 @@ td {
   padding: 24px;
   position: relative;
   text-align: center;
-  box-shadow: 0 30px 80px rgba(0,0,0,.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .18);
 }
 
 .gift-modal h2 {
@@ -662,7 +668,7 @@ td {
 .photo-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.88);
+  background: rgba(0, 0, 0, .88);
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -675,7 +681,7 @@ td {
   max-height: 95dvh;
   object-fit: contain;
   border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
 }
 
 .photo-close {
@@ -815,17 +821,17 @@ td {
   }
 
   .iban-copy-btn {
-  margin-top: 20px;
-  width: 100%;
-  font-size: 0.9rem;
-}
+    margin-top: 20px;
+    width: 100%;
+    font-size: 0.9rem;
+  }
 
-.gift-divider {
-  text-align: center;
-  font-size: 2rem;
-  color: var(--peach);
-  margin: 20px 0;
-}
+  .gift-divider {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--peach);
+    margin: 20px 0;
+  }
 
   .modal-overlay {
     padding: 14px;
