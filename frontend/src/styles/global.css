@@ -148,9 +148,7 @@ textarea {
 .card,
 .invite-card,
 .stat-card {
-  background: linear-gradient(200deg,
-      color-mix(in srgb, var(--orange-peach) 5%, white),
-      var(--orange-peach));
+  background-color: var(--peach-soft);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
