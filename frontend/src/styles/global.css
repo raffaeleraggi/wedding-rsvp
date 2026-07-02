@@ -112,7 +112,7 @@ select {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 12px 14px;
-  background: var(--peach-soft)
+  background: var(--peach-soft);
   color: var(--text);
   font-family: var(--font-main);
   font-size: 18px;
@@ -348,10 +348,9 @@ td {
 
 .save-date {
   font-family: var(--font-main);
-  font-size: 52px;
-  line-height: 1;
+  font-size: 44px;
+  margin: 32px 0 22px;
   color: var(--blue-dark);
-  margin: 48px 0 34px;
 }
 
 .couple-title {
@@ -366,10 +365,9 @@ td {
 
 .invite-subtitle {
   font-family: var(--font-main);
-  font-size: 30px;
-  line-height: 1;
+  font-size: 26px;
+  margin-bottom: 28px;
   color: var(--blue-dark);
-  margin: 0 0 42px;
 }
 
 .date {
@@ -570,6 +568,7 @@ td {
 }
 
 .gift-modal h2 {
+  font-family: var(--font-main);
   font-size: 44px;
   margin: 0;
 }
@@ -615,8 +614,9 @@ td {
 
 .beneficiary {
   font-family: var(--font-title);
-  font-size: 34px;
+  font-size: 32px;
   line-height: 1.05;
+  margin-top: 10px;
   color: var(--blue-dark);
 }
 
@@ -729,20 +729,11 @@ td {
     padding: 24px;
   }
 
-  .save-date {
-    font-size: 44px;
-    margin: 32px 0 22px;
-  }
 
   .couple-title {
     font-size: 76px;
     line-height: 0.88;
     margin-bottom: 34px;
-  }
-
-  .invite-subtitle {
-    font-size: 26px;
-    margin-bottom: 28px;
   }
 
   .date {
@@ -847,9 +838,5 @@ td {
 
   .iban-label {
     font-size: 24px;
-  }
-
-  .beneficiary {
-    font-size: 32px;
   }
 }
