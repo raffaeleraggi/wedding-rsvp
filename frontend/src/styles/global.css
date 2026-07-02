@@ -112,7 +112,7 @@ select {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 12px 14px;
-  background: white;
+  background: var(--peach-soft)
   color: var(--text);
   font-family: var(--font-main);
   font-size: 18px;

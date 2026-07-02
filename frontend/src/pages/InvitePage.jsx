@@ -73,12 +73,12 @@ export default function InvitePage() {
         <br />
         Riccardo
       </h1>
-      <h4 className="invite-subtitle">Siamo felici di invitarti al nostro matrimonio</h4>
+      <p className="invite-subtitle">Siamo felici di invitarti al nostro matrimonio</p>
       <p className="date">18 settembre 2026</p>
 
       <div className="event-box">
         <h4>Celebrazione</h4>
-        <p><strong>Casa Comunale di Vitorchiano</strong></p>
+        <p>Casa Comunale di Vitorchiano</p>
         <p>ore 17:00</p>
         <a
           href="https://maps.app.goo.gl/1wsw1Gfb9FjAoeBX6"
@@ -92,7 +92,7 @@ export default function InvitePage() {
 
       <div className="event-box">
         <h4>Ricevimento</h4>
-        <p><strong>Tenuta la Gramignana</strong></p>
+        <p>Tenuta la Gramignana</p>
         <p>ore 18:00</p>
 
         <a
