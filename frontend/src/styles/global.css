@@ -385,8 +385,8 @@ td {
   padding: 22px;
   border-radius: 24px;
   background: linear-gradient(200deg,
-      color-mix(in srgb, var(--orange-peach) 5%, white),
-      var(--orange-peach));  border: 1px solid rgba(244, 182, 166, 0.45);
+      color-mix(in srgb, var(--peach-middle) 5%, white),
+      var(--peach-middle));  border: 1px solid rgba(244, 182, 166, 0.45);
   text-align: left;
 }
 
@@ -568,7 +568,7 @@ td {
 }
 
 .gift-modal h2 {
-  font-family: var(--font-main);
+  font-family: var(--font-title);
   font-size: 44px;
   margin: 0;
 }
