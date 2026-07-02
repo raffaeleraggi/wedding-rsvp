@@ -386,7 +386,8 @@ td {
   border-radius: 24px;
   background: linear-gradient(200deg,
       color-mix(in srgb, var(--peach-middle) 5%, white),
-      var(--peach-middle));  border: 1px solid rgba(244, 182, 166, 0.45);
+      var(--peach-middle));
+  border: 1px solid rgba(244, 182, 166, 0.45);
   text-align: left;
 }
 
@@ -420,21 +421,33 @@ td {
   width: fit-content;
   gap: 8px;
   margin-top: 18px;
-  padding: 10px 20px;
   border-radius: 999px;
-  background: var(--blue);
-  color: white !important;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, .15), transparent 60%),
+    linear-gradient(135deg, #55788d, #3f6177);
+  color: #fff !important;
   text-decoration: none;
   font-family: var(--font-main);
-  font-size: 12px;
   font-weight: 700;
-  box-shadow: 0 10px 25px rgba(66, 104, 122, 0.18);
-  transition: .2s;
+  box-shadow:
+    0 8px 18px rgba(66, 104, 122, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .15);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+  font-size: 12px;
+  padding: 9px 18px;
 }
 
 .maps-button:hover {
-  background: var(--blue-dark);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg,
+      #62879d 0%,
+      #52778d 45%,
+      #45697f 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 26px rgba(66, 104, 122, .25),
+    inset 0 1px 0 rgba(255, 255, 255, .18);
 }
 
 /* RSVP */
@@ -753,11 +766,6 @@ td {
 
   .event-box p {
     font-size: 32px;
-  }
-
-  .maps-button {
-    font-size: 12px;
-    padding: 9px 18px;
   }
 
   .guest-hi {
