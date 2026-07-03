@@ -498,8 +498,7 @@ td {
   margin-top: 20px;
   padding: 28px;
   border-radius: 28px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, .95), rgba(244, 182, 166, .16));
+  background: var(--peach-light-soft);
   border: 1px solid rgba(66, 104, 122, .12);
   text-align: center;
   box-shadow: 0 14px 40px rgba(0, 0, 0, .08);
