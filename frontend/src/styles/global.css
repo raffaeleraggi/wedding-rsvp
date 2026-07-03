@@ -511,7 +511,7 @@ td {
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: #dce9ef;
+  background: var(--peach-middle);
   color: #35586b;
   font-size: 28px;
   font-weight: 900;
