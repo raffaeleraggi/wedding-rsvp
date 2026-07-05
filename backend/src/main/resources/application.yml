@@ -11,6 +11,9 @@ app:
     language-code: ${WHATSAPP_LANGUAGE_CODE:it}
   backup:
     path: ${BACKUP_PATH:./backups}
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    password: ${ADMIN_PASSWORD:admin123}
 
 spring:
   datasource:

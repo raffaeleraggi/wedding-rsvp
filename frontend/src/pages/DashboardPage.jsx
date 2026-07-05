@@ -1,3 +1,4 @@
+import AdminLoginPage from "./AdminLoginPage.jsx";
 import { useEffect, useState } from "react";
 import { api } from "../api/api.js";
 import StatCard from "../components/StatCard.jsx";
@@ -13,6 +14,15 @@ export default function DashboardPage() {
     phone: "",
     additionalPeople: 0,
   });
+
+  const [logged, setLogged] = useState(
+    Boolean(localStorage.getItem("adminToken"))
+  );
+
+  if (!logged) {
+    return <AdminLoginPage onLogin={() => setLogged(true)} />;
+  }
+
   const [file, setFile] = useState(null);
   const [search, setSearch] = useState("");
 
