@@ -569,8 +569,7 @@ td {
   width: min(460px, 100%);
   max-height: calc(100dvh - 48px);
   overflow-y: auto;
-
-  background: white;
+  background: var(--peach-soft);
   border-radius: 28px;
   padding: 24px;
   position: relative;
@@ -605,7 +604,8 @@ td {
   margin-top: 20px;
   padding: 14px;
   border-radius: 20px;
-  background: #f8f4f1;
+  background: var(--peach-light-soft);
+;
 }
 
 .iban-label {
