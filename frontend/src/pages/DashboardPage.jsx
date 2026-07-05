@@ -19,16 +19,6 @@ export default function DashboardPage() {
     Boolean(localStorage.getItem("adminToken"))
   );
 
-  useEffect(() => {
-    if (logged) {
-      load();
-    }
-  }, [logged]);
-
-  if (!logged) {
-    return <AdminLoginPage onLogin={() => setLogged(true)} />;
-  }
-
   const [file, setFile] = useState(null);
   const [search, setSearch] = useState("");
 
@@ -60,8 +50,14 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    load();
-  }, []);
+    if (logged) {
+      load();
+    }
+  }, [logged]);
+
+  if (!logged) {
+    return <AdminLoginPage onLogin={() => setLogged(true)} />;
+  }
 
   const createGuest = async (e) => {
     e.preventDefault();
