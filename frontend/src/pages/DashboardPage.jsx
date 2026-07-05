@@ -19,6 +19,12 @@ export default function DashboardPage() {
     Boolean(localStorage.getItem("adminToken"))
   );
 
+  useEffect(() => {
+    if (logged) {
+      load();
+    }
+  }, [logged]);
+
   if (!logged) {
     return <AdminLoginPage onLogin={() => setLogged(true)} />;
   }
