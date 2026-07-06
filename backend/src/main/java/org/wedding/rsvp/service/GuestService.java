@@ -313,6 +313,13 @@ public class GuestService {
                     .whatsappSent(Boolean.TRUE.equals(dto.getWhatsappSent()))
                     .whatsappSentAt(dto.getWhatsappSentAt())
                     .status(dto.getStatus() != null ? dto.getStatus() : RsvpStatus.IN_ATTESA)
+                    .additionalAdults(
+                            dto.getAdditionalAdults() != null
+                                    ? dto.getAdditionalAdults()
+                                    : 0
+                    )
+                    .childrenCount(dto.getChildrenCount() != null ? dto.getChildrenCount() : 0)
+                    .childrenAges(dto.getChildrenAges())
                     .allergies(dto.getAllergies())
                     .message(dto.getMessage())
                     .repliedAt(dto.getRepliedAt())
