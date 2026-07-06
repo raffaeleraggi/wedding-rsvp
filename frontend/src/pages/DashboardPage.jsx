@@ -221,21 +221,6 @@ export default function DashboardPage() {
           Esporta Lista Invitati
         </button>
 
-        <div className="backup-actions">
-          <button type="button" onClick={backupGuests}>
-            Backup invitati
-          </button>
-          <label className="restore-button">
-            Restore invitati
-            <input
-              type="file"
-              accept="application/json"
-              onChange={restoreGuests}
-              hidden
-            />
-          </label>
-        </div>
-
         <div className="table-wrapper">
           <table>
             <thead>
@@ -281,21 +266,34 @@ export default function DashboardPage() {
         </div>
       </section>
       <section className="card form-card">
-          <h2>Backup automatici</h2>
-
-          {backups.length === 0 ? (
-            <p>Nessun backup disponibile.</p>
-          ) : (
-            backups.map((file) => (
-              <div key={file} className="backup-row">
-                <span>{file}</span>
-                <button type="button" onClick={() => downloadBackup(file)}>
-                  Scarica
-                </button>
-              </div>
-            ))
-          )}
-        </section>
+        <h2>Backup automatici</h2>
+        <div className="backup-actions">
+          <button type="button" onClick={backupGuests}>
+            Backup invitati
+          </button>
+          <label className="restore-button">
+            Restore invitati
+            <input
+              type="file"
+              accept="application/json"
+              onChange={restoreGuests}
+              hidden
+            />
+          </label>
+        </div>
+        {backups.length === 0 ? (
+          <p>Nessun backup disponibile.</p>
+        ) : (
+          backups.map((file) => (
+            <div key={file} className="backup-row">
+              <span>{file}</span>
+              <button type="button" onClick={() => downloadBackup(file)}>
+                Scarica
+              </button>
+            </div>
+          ))
+        )}
+      </section>
     </main>
   );
 }
