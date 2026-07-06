@@ -22,7 +22,7 @@ public class BackupScheduler {
     @Value("${app.backup.path:./backups}")
     private String backupPath;
 
-    @Scheduled(cron = "0 0 2 * * *")
+    @Scheduled(cron = "0 0 5 * * *")
     public void backupGuestsEveryNight() throws Exception {
         Files.createDirectories(Path.of(backupPath));
 

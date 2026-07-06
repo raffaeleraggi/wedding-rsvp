@@ -279,8 +279,8 @@ export default function DashboardPage() {
             </tbody>
           </table>
         </div>
-
-        <section className="card form-card">
+      </section>
+      <section className="card form-card">
           <h2>Backup automatici</h2>
 
           {backups.length === 0 ? (
@@ -296,7 +296,6 @@ export default function DashboardPage() {
             ))
           )}
         </section>
-      </section>
     </main>
   );
 }
