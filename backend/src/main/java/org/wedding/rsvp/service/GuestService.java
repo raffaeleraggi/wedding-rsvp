@@ -303,6 +303,11 @@ public class GuestService {
     public void restoreGuests(List<GuestBackupDto> guests) {
         for (GuestBackupDto dto : guests) {
 
+            if (dto.getShortCode() != null &&
+                    guestRepository.existsByShortCode(dto.getShortCode())) {
+                continue;
+            }
+
             GuestEntity guest = GuestEntity.builder()
                     .name(dto.getName())
                     .surname(dto.getSurname())
