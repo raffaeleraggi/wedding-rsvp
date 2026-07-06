@@ -20,6 +20,7 @@ export default function DashboardPage() {
 
   const [file, setFile] = useState(null);
   const [search, setSearch] = useState("");
+  const [backups, setBackups] = useState([]);
 
   const deleteGuest = async (id, name) => {
 
@@ -46,6 +47,27 @@ export default function DashboardPage() {
       console.error("Risposta guests non valida:", guestsRes.data);
       setGuests([]);
     }
+    await loadBackups();
+  };
+
+  const loadBackups = async () => {
+    const res = await api.get("/admin/backups");
+    setBackups(res.data);
+  };
+
+  const downloadBackup = async (filename) => {
+    const res = await api.get(`/admin/backups/${filename}`, {
+      responseType: "blob",
+    });
+
+    const url = window.URL.createObjectURL(new Blob([res.data]));
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = filename;
+    link.click();
+
+    window.URL.revokeObjectURL(url);
   };
 
   useEffect(() => {
@@ -257,6 +279,23 @@ export default function DashboardPage() {
             </tbody>
           </table>
         </div>
+
+        <section className="card form-card">
+          <h2>Backup automatici</h2>
+
+          {backups.length === 0 ? (
+            <p>Nessun backup disponibile.</p>
+          ) : (
+            backups.map((file) => (
+              <div key={file} className="backup-row">
+                <span>{file}</span>
+                <button type="button" onClick={() => downloadBackup(file)}>
+                  Scarica
+                </button>
+              </div>
+            ))
+          )}
+        </section>
       </section>
     </main>
   );

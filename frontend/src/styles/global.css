@@ -312,6 +312,19 @@ td {
   padding: 0;
 }
 
+.backup-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.backup-row span {
+  word-break: break-all;
+}
+
 /* INVITE PAGE */
 
 .invite-page {
