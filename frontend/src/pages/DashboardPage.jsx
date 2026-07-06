@@ -220,7 +220,10 @@ export default function DashboardPage() {
               <tr>
                 <th>Nome</th>
                 <th>Stato</th>
-                <th>Persone aggiuntive</th>
+                <th>Adulti aggiuntivi</th>
+                <th>Bambini aggiuntivi</th>
+                <th>Età bambini</th>
+                <th>Totale Persone aggiuntive</th>
                 <th>Invito</th>
                 <th>WhatsApp</th>
               </tr>

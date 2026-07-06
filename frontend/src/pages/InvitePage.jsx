@@ -15,7 +15,7 @@ export default function InvitePage() {
   const alreadyAnswered = guest?.status && guest.status !== "IN_ATTESA" && !editing;
   const [form, setForm] = useState({
     status: "CONFERMATO",
-    additionalAdults: 0,
+    companionsCount: 0,
     childrenCount: 0,
     childrenAges: "",
     allergies: "",
@@ -40,8 +40,8 @@ export default function InvitePage() {
       setGuest(res.data);
       setForm({
         status: res.data.status === "RIFIUTATO" ? "RIFIUTATO" : "CONFERMATO",
-        additionalAdults: res.data.additionalAdults ?? res.data.additionalGuests ?? 0,
-        childrenCount: res.data.childrenCount ?? 0,
+        companionsCount: additionalAdults + childrenCount,
+        childrenCount,
         childrenAges: res.data.childrenAges ?? "",
         allergies: res.data.allergies ?? "",
         message: res.data.message ?? "",
@@ -53,10 +53,12 @@ export default function InvitePage() {
     e.preventDefault();
 
     const isConfirmed = form.status === "CONFERMATO";
+    const companionsCount = Number(form.companionsCount || 0);
+    const childrenCount = Number(form.childrenCount || 0);
 
     const payload = {
       ...form,
-      additionalAdults: isConfirmed ? Number(form.additionalAdults || 0) : 0,
+      additionalAdults: isConfirmed ? companionsCount - childrenCount : 0,
       childrenCount: isConfirmed ? Number(form.childrenCount || 0) : 0,
       childrenAges: isConfirmed ? form.childrenAges : "",
     };
@@ -158,11 +160,15 @@ export default function InvitePage() {
               <button
                 type="button"
                 onClick={() => {
+                  const additionalAdults = guest.additionalAdults ?? 0;
+                  const childrenCount = guest.childrenCount ?? 0;
+
                   setForm({
                     status: guest.status,
-                    additionalAdults: guest.additionalAdults ?? 0,
-                    childrenCount: guest.childrenCount ?? 0,
-                    childrenAges: guest.childrenAges || "", allergies: guest.allergies || "",
+                    companionsCount: additionalAdults + childrenCount,
+                    childrenCount,
+                    childrenAges: guest.childrenAges || "", 
+                    allergies: guest.allergies || "",
                     message: guest.message || "",
                   });
 
@@ -187,63 +193,86 @@ export default function InvitePage() {
 
               {form.status === "CONFERMATO" && (
                 <>
-                  <label>Quanti adulti porti?</label>
+                  <label>Porterai qualcuno? Faccelo sapere...</label>
                   <select
-                    value={form.additionalAdults}
-                    onChange={(e) =>
-                      setForm({
-                        ...form,
-                        additionalAdults: Number(e.target.value),
-                      })
-                    }
-                  >
-                    <option value={0}>Nessun adulto</option>
-                    <option value={1}>1 adulto</option>
-                    <option value={2}>2 adulti</option>
-                    <option value={3}>3 adulti</option>
-                    <option value={4}>4 adulti</option>
-                  </select>
-
-                  <label>Quanti bambini porti?</label>
-                  <select
-                    value={form.childrenCount}
+                    value={form.companionsCount}
                     onChange={(e) => {
-                      const count = Number(e.target.value);
-                      const ages = form.childrenAges
-                        ? form.childrenAges.split(",").map((age) => age.trim())
-                        : [];
+                      const companionsCount = Number(e.target.value);
 
                       setForm({
                         ...form,
-                        childrenCount: count,
-                        childrenAges: ages.slice(0, count).join(", "),
+                        companionsCount,
+                        childrenCount: 0,
+                        childrenAges: "",
                       });
                     }}
                   >
-                    <option value={0}>Nessun bambino</option>
-                    <option value={1}>1 bambino</option>
-                    <option value={2}>2 bambini</option>
-                    <option value={3}>3 bambini</option>
-                    <option value={4}>4 bambini</option>
+                    <option value={0}>Verrò da solo/a</option>
+                    <option value={1}>Porterò 1 persona</option>
+                    <option value={2}>Porterò 2 persone</option>
+                    <option value={3}>Porterò 3 persone</option>
+                    <option value={4}>Porterò 4 persone</option>
+                    <option value={5}>Porterò 5 persone</option>
                   </select>
 
-                  {Array.from({ length: Number(form.childrenCount || 0) }).map((_, index) => {
-                    const ages = form.childrenAges
-                      ? form.childrenAges.split(",").map((age) => age.trim())
-                      : [];
+                  {Number(form.companionsCount || 0) > 0 && (
+                    <>
+                      <label>Quanti di questi sono bambini?</label>
+                      <select
+                        value={form.childrenCount}
+                        onChange={(e) => {
+                          const childrenCount = Number(e.target.value);
+                          const ages = form.childrenAges
+                            ? form.childrenAges.split(",").map((age) => age.trim())
+                            : [];
 
-                    return (
-                      <input
-                        key={index}
-                        type="number"
-                        min="0"
-                        max="17"
-                        placeholder={`Età bambino ${index + 1}`}
-                        value={ages[index] ?? ""}
-                        onChange={(e) => updateChildAge(index, e.target.value)}
-                      />
-                    );
-                  })}
+                          setForm({
+                            ...form,
+                            childrenCount,
+                            childrenAges: ages.slice(0, childrenCount).join(", "),
+                          });
+                        }}
+                      >
+                        {Array.from({
+                          length: Number(form.companionsCount || 0) + 1,
+                        }).map((_, index) => (
+                          <option key={index} value={index}>
+                            {index === 0
+                              ? "Nessun bambino"
+                              : index === 1
+                                ? "1 bambino"
+                                : `${index} bambini`}
+                          </option>
+                        ))}
+                      </select>
+                    </>
+                  )}
+
+                  {Number(form.childrenCount || 0) > 0 && (
+                    <>
+                      <label>Età bambini</label>
+
+                      {Array.from({ length: Number(form.childrenCount || 0) }).map(
+                        (_, index) => {
+                          const ages = form.childrenAges
+                            ? form.childrenAges.split(",").map((age) => age.trim())
+                            : [];
+
+                          return (
+                            <input
+                              key={index}
+                              type="number"
+                              min="0"
+                              max="17"
+                              placeholder={`Età bambino ${index + 1}`}
+                              value={ages[index] ?? ""}
+                              onChange={(e) => updateChildAge(index, e.target.value)}
+                            />
+                          );
+                        }
+                      )}
+                    </>
+                  )}
                 </>
               )}
 
