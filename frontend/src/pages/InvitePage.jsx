@@ -234,8 +234,7 @@ export default function InvitePage() {
                         }}
                       >
                         {Array.from({
-                          length: Number(form.companionsCount || 0) + 1,
-                        }).map((_, index) => (
+                          length: 6}).map((_, index) => (
                           <option key={index} value={index}>
                             {index === 0
                               ? "Nessun bambino"
