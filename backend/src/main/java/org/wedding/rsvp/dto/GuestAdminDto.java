@@ -17,6 +17,9 @@ public class GuestAdminDto {
     private String whatsappLink;
     private RsvpStatus status;
     private Integer additionalPeople;
+    private Integer additionalAdults;
+    private Integer childrenCount;
+    private String childrenAges;
     private String allergies;
     private String message;
     private Boolean whatsappSent;

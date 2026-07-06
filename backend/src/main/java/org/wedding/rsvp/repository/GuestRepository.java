@@ -16,10 +16,12 @@ public interface GuestRepository extends JpaRepository<GuestEntity, Long> {
 
     long countByWhatsappSentTrue();
 
-    @Query("select coalesce(sum(coalesce(g.additionalGuests, 0) + 1), 0) from GuestEntity g where g.status = org.wedding.rsvp.entity.RsvpStatus.CONFERMATO")
-    long sumConfirmedPeople();
+   /* @Query("select coalesce(sum(coalesce(g.additionalGuests, 0) + 1), 0) from GuestEntity g where g.status = org.wedding.rsvp.entity.RsvpStatus.CONFERMATO")
+    long sumConfirmedPeopleOld();*/
 
-    @Query("select coalesce(sum(g.additionalGuests), 0) from GuestEntity g where g.status = :status")
+    @Query("""
+        select coalesce(sum(coalesce(g.additionalAdults, 0) + coalesce(g.childrenCount, 0)),0) from GuestEntity g where g.status = :status
+""")
     long sumAdditionalGuestsByStatus(RsvpStatus status);
 
     boolean existsByShortCode(String shortCode);
@@ -27,4 +29,11 @@ public interface GuestRepository extends JpaRepository<GuestEntity, Long> {
     Optional<GuestEntity> findByShortCode(String shortCode);
 
     boolean existsByToken(String token);
+
+    @Query("""
+    select coalesce(sum(coalesce(g.additionalAdults, 0) + coalesce(g.childrenCount, 0) + 1), 0)
+    from GuestEntity g
+    where g.status = org.wedding.rsvp.entity.RsvpStatus.CONFERMATO
+""")
+    long sumConfirmedPeople();
 }

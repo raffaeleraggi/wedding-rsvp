@@ -46,7 +46,6 @@ public class GuestService {
                 .surname(request.getSurname())
                 .email(request.getEmail())
                 .phone(request.getPhone())
-                .additionalGuests(request.getAdditionalGuests())
                 .status(RsvpStatus.IN_ATTESA)
                 .shortCode(generateShortCode())
                 .build();
@@ -62,7 +61,9 @@ public class GuestService {
                 .name(guest.getName())
                 .surname(guest.getSurname())
                 .status(guest.getStatus())
-                .additionalGuests(guest.getAdditionalGuests())
+                .additionalAdults(resolveAdditionalAdults(guest))
+                .childrenCount(resolveChildrenCount(guest))
+                .childrenAges(guest.getChildrenAges())
                 .allergies(guest.getAllergies())
                 .message(guest.getMessage())
                 .build();
@@ -81,8 +82,18 @@ public class GuestService {
     public GuestInviteDto reply(String token, GuestReplyRequest request) {
         GuestEntity guest = findByShortCode(token);
 
+        int additionalAdults = nonNegative(
+                request.getAdditionalAdults() != null
+                        ? request.getAdditionalAdults()
+                        : 0);
+
+        int childrenCount = nonNegative(request.getChildrenCount());
+
         guest.setStatus(request.getStatus());
-        guest.setAdditionalGuests(request.getAdditionalGuests() == null ? 1 : request.getAdditionalGuests());
+
+        guest.setAdditionalAdults(additionalAdults);
+        guest.setChildrenCount(childrenCount);
+        guest.setChildrenAges(cleanChildrenAges(request.getChildrenAges(), childrenCount));
         guest.setAllergies(request.getAllergies());
         guest.setMessage(request.getMessage());
         guest.setRepliedAt(LocalDateTime.now());
@@ -93,7 +104,9 @@ public class GuestService {
                 .name(saved.getName())
                 .surname(saved.getSurname())
                 .status(saved.getStatus())
-                .additionalGuests(saved.getAdditionalGuests())
+                .additionalAdults(saved.getAdditionalAdults())
+                .childrenCount(saved.getChildrenCount())
+                .childrenAges(saved.getChildrenAges())
                 .allergies(saved.getAllergies())
                 .message(saved.getMessage())
                 .build();
@@ -117,7 +130,6 @@ public class GuestService {
                         .surname(get(record, "surname"))
                         .email(get(record, "email"))
                         .phone(get(record, "phone"))
-                        .additionalGuests(parseInteger(get(record, "numberOfPeople")))
                         .status(RsvpStatus.IN_ATTESA)
                         .build();
 
@@ -197,7 +209,10 @@ public class GuestService {
                 .inviteUrl(inviteUrl)
                 .whatsappLink(buildWhatsappLink(guest, inviteUrl))
                 .status(guest.getStatus())
-                .additionalPeople(guest.getAdditionalGuests())
+                .additionalPeople(totalAdditionalPeople(guest))
+                .additionalAdults(resolveAdditionalAdults(guest))
+                .childrenCount(resolveChildrenCount(guest))
+                .childrenAges(guest.getChildrenAges())
                 .allergies(guest.getAllergies())
                 .message(guest.getMessage())
                 .whatsappSent(guest.getWhatsappSent())
@@ -298,7 +313,6 @@ public class GuestService {
                     .whatsappSent(Boolean.TRUE.equals(dto.getWhatsappSent()))
                     .whatsappSentAt(dto.getWhatsappSentAt())
                     .status(dto.getStatus() != null ? dto.getStatus() : RsvpStatus.IN_ATTESA)
-                    .additionalGuests(dto.getAdditionalGuests() != null ? dto.getAdditionalGuests() : 0)
                     .allergies(dto.getAllergies())
                     .message(dto.getMessage())
                     .repliedAt(dto.getRepliedAt())
@@ -319,12 +333,42 @@ public class GuestService {
         dto.setShortCode(guest.getShortCode());
         dto.setWhatsappSentAt(guest.getWhatsappSentAt());
         dto.setStatus(guest.getStatus());
-        dto.setAdditionalGuests(guest.getAdditionalGuests());
+        dto.setAdditionalAdults(guest.getAdditionalAdults());
+        dto.setChildrenCount(guest.getChildrenCount());
+        dto.setChildrenAges(guest.getChildrenAges());
         dto.setAllergies(guest.getAllergies());
         dto.setMessage(guest.getMessage());
         dto.setRepliedAt(guest.getRepliedAt());
 
         return dto;
+    }
+
+    private int resolveAdditionalAdults(GuestEntity guest) {
+        return nonNegative(
+                guest.getAdditionalAdults() != null
+                        ? guest.getAdditionalAdults()
+                        : 0
+        );
+    }
+
+    private int resolveChildrenCount(GuestEntity guest) {
+        return nonNegative(guest.getChildrenCount());
+    }
+
+    private int totalAdditionalPeople(GuestEntity guest) {
+        return resolveAdditionalAdults(guest) + resolveChildrenCount(guest);
+    }
+
+    private int nonNegative(Integer value) {
+        return value == null || value < 0 ? 0 : value;
+    }
+
+    private String cleanChildrenAges(String childrenAges, int childrenCount) {
+        if (childrenCount <= 0 || childrenAges == null || childrenAges.isBlank()) {
+            return null;
+        }
+
+        return childrenAges.trim();
     }
 
 }

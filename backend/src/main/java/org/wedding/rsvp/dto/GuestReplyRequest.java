@@ -9,7 +9,9 @@ public class GuestReplyRequest {
     @NotNull
     private RsvpStatus status;
 
-    private Integer additionalGuests;
+    private Integer additionalAdults;
+    private Integer childrenCount;
+    private String childrenAges;
     private String allergies;
     private String message;
 }

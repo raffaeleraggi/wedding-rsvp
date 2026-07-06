@@ -12,7 +12,6 @@ export default function DashboardPage() {
     surname: "",
     email: "",
     phone: "",
-    additionalPeople: 0,
   });
 
   const [logged, setLogged] = useState(
@@ -62,7 +61,7 @@ export default function DashboardPage() {
   const createGuest = async (e) => {
     e.preventDefault();
     await api.post("/admin/guests", form);
-    setForm({ name: "", surname: "", email: "", phone: "", additionalPeople: 0 });
+    setForm({ name: "", surname: "", email: "", phone: "" });
     await load();
   };
 
@@ -232,7 +231,10 @@ export default function DashboardPage() {
                 <tr key={guest.id}>
                   <td>{guest.name} {guest.surname}</td>
                   <td><span className={`badge ${guest.status?.toLowerCase()}`}>{guest.status}</span></td>
-                  <td>{guest.additionalPeople ?? 0}</td>
+                  <td>{guest.additionalAdults ?? 0}</td>
+                  <td>{guest.childrenCount ?? 0}</td>
+                  <td>{guest.childrenAges || "-"}</td>
+                  <td>{(guest.additionalAdults ?? 0) + (guest.childrenCount ?? 0)}</td>
                   <td>
                     <a href={guest.inviteUrl} target="_blank">Apri</a>
                   </td>

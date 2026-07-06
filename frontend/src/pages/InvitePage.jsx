@@ -15,17 +15,34 @@ export default function InvitePage() {
   const alreadyAnswered = guest?.status && guest.status !== "IN_ATTESA" && !editing;
   const [form, setForm] = useState({
     status: "CONFERMATO",
-    additionalGuests: 0,
+    additionalAdults: 0,
+    childrenCount: 0,
+    childrenAges: "",
     allergies: "",
     message: "",
   });
+
+  const updateChildAge = (index, value) => {
+    const ages = form.childrenAges
+      ? form.childrenAges.split(",").map((age) => age.trim())
+      : [];
+
+    ages[index] = value;
+
+    setForm({
+      ...form,
+      childrenAges: ages.slice(0, form.childrenCount).join(", "),
+    });
+  };
 
   useEffect(() => {
     api.get(`/invite/${token}`).then((res) => {
       setGuest(res.data);
       setForm({
         status: res.data.status === "RIFIUTATO" ? "RIFIUTATO" : "CONFERMATO",
-        additionalGuests: res.data.additionalGuests ?? 0,
+        additionalAdults: res.data.additionalAdults ?? res.data.additionalGuests ?? 0,
+        childrenCount: res.data.childrenCount ?? 0,
+        childrenAges: res.data.childrenAges ?? "",
         allergies: res.data.allergies ?? "",
         message: res.data.message ?? "",
       });
@@ -34,8 +51,20 @@ export default function InvitePage() {
 
   const submit = async (e) => {
     e.preventDefault();
-    await api.post(`/invite/${token}/reply`, form);
+
+    const isConfirmed = form.status === "CONFERMATO";
+
+    const payload = {
+      ...form,
+      additionalAdults: isConfirmed ? Number(form.additionalAdults || 0) : 0,
+      childrenCount: isConfirmed ? Number(form.childrenCount || 0) : 0,
+      childrenAges: isConfirmed ? form.childrenAges : "",
+    };
+
+    const res = await api.post(`/invite/${token}/reply`, payload);
+    setGuest(res.data);
     setSaved(true);
+    setEditing(false);
   };
 
   if (!guest) {
@@ -43,249 +72,295 @@ export default function InvitePage() {
   }
 
   return (
-  <main className="invite-page">
-    <section className="invite-card">
+    <main className="invite-page">
+      <section className="invite-card">
 
-{!envelopeOpen && (
-  <div className="envelope-cover">
-    <button
-      type="button"
-      className="envelope-cover-button"
-      onClick={() => setEnvelopeOpen(true)}
-      style={{ backgroundImage: `url(${envelopeBg})` }}
-      aria-label="Apri invito"
-    />
-  </div>
-)}
+        {!envelopeOpen && (
+          <div className="envelope-cover">
+            <button
+              type="button"
+              className="envelope-cover-button"
+              onClick={() => setEnvelopeOpen(true)}
+              style={{ backgroundImage: `url(${envelopeBg})` }}
+              aria-label="Apri invito"
+            />
+          </div>
+        )}
 
-<div className={`invite-content ${envelopeOpen ? "open" : "closed"}`}>
+        <div className={`invite-content ${envelopeOpen ? "open" : "closed"}`}>
 
-      <div className="invite-image-wrapper"
-        onClick={() => setShowPhoto(true)}>
-          <img src={headerImage} alt="Martina e Riccardo" className="invite-image"/>
-      </div>
-
-      <p className="save-date">Save the date</p>
-      <h1 className="couple-title">
-        Martina
-        <br />
-          &
-        <br />
-        Riccardo
-      </h1>
-      <p className="invite-subtitle">Siamo felici di invitarti al nostro matrimonio</p>
-      <p className="date">18 settembre 2026</p>
-
-      <div className="event-box">
-        <h4>Celebrazione</h4>
-        <p>Casa Comunale di Vitorchiano</p>
-        <p>ore 17:00</p>
-        <a
-          href="https://maps.app.goo.gl/1wsw1Gfb9FjAoeBX6"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="maps-button"
-        >
-          ✧ Come arrivare
-        </a>
-      </div>
-
-      <div className="event-box">
-        <h4>Ricevimento</h4>
-        <p>Tenuta la Gramignana</p>
-        <p>ore 18:00</p>
-
-        <a
-          href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="maps-button"
-        >
-          ✧ Come arrivare
-        </a>
-      </div>
-
-      {!alreadyAnswered && (
-  <p className="guest-hi">
-    Ciao {guest.name} conferma qui la tua presenza.
-  </p>
-)}
-
-      {alreadyAnswered ? (
-        <div className="saved-rsvp-card">
-
-          <div className="saved-icon">
-            ✓
+          <div className="invite-image-wrapper"
+            onClick={() => setShowPhoto(true)}>
+            <img src={headerImage} alt="Martina e Riccardo" className="invite-image" />
           </div>
 
-          <h2>Abbiamo già salvato la tua risposta.</h2>
+          <p className="save-date">Save the date</p>
+          <h1 className="couple-title">
+            Martina
+            <br />
+            &
+            <br />
+            Riccardo
+          </h1>
+          <p className="invite-subtitle">Siamo felici di invitarti al nostro matrimonio</p>
+          <p className="date">18 settembre 2026</p>
 
-          <div className="saved-status">
-            {guest.status === "CONFERMATO"
-              ? "Parteciperai al matrimonio ♡"
-              : "Non potrai partecipare"}
+          <div className="event-box">
+            <h4>Celebrazione</h4>
+            <p>Casa Comunale di Vitorchiano</p>
+            <p>ore 17:00</p>
+            <a
+              href="https://maps.app.goo.gl/1wsw1Gfb9FjAoeBX6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="maps-button"
+            >
+              ✧ Come arrivare
+            </a>
           </div>
+
+          <div className="event-box">
+            <h4>Ricevimento</h4>
+            <p>Tenuta la Gramignana</p>
+            <p>ore 18:00</p>
+
+            <a
+              href="https://maps.app.goo.gl/KzdkGAmsC9G4Qkru5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="maps-button"
+            >
+              ✧ Come arrivare
+            </a>
+          </div>
+
+          {!alreadyAnswered && (
+            <p className="guest-hi">
+              Ciao {guest.name} conferma qui la tua presenza.
+            </p>
+          )}
+
+          {alreadyAnswered ? (
+            <div className="saved-rsvp-card">
+
+              <div className="saved-icon">
+                ✓
+              </div>
+
+              <h2>Abbiamo già salvato la tua risposta.</h2>
+
+              <div className="saved-status">
+                {guest.status === "CONFERMATO"
+                  ? "Parteciperai al matrimonio ♡"
+                  : "Non potrai partecipare"}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setForm({
+                    status: guest.status,
+                    additionalAdults: guest.additionalAdults ?? 0,
+                    childrenCount: guest.childrenCount ?? 0,
+                    childrenAges: guest.childrenAges || "", allergies: guest.allergies || "",
+                    message: guest.message || "",
+                  });
+
+                  setEditing(true);
+                }}
+              >
+                Modifica risposta
+              </button>
+
+            </div>
+          ) : (
+            <form onSubmit={submit} className="rsvp-form">
+
+              <label>Partecipazione</label>
+              <select
+                value={form.status}
+                onChange={(e) => setForm({ ...form, status: e.target.value })}
+              >
+                <option value="CONFERMATO">Parteciperò</option>
+                <option value="RIFIUTATO">Non potrò partecipare</option>
+              </select>
+
+              {form.status === "CONFERMATO" && (
+                <>
+                  <label>Quanti adulti porti?</label>
+                  <select
+                    value={form.additionalAdults}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        additionalAdults: Number(e.target.value),
+                      })
+                    }
+                  >
+                    <option value={0}>Nessun adulto</option>
+                    <option value={1}>1 adulto</option>
+                    <option value={2}>2 adulti</option>
+                    <option value={3}>3 adulti</option>
+                    <option value={4}>4 adulti</option>
+                  </select>
+
+                  <label>Quanti bambini porti?</label>
+                  <select
+                    value={form.childrenCount}
+                    onChange={(e) => {
+                      const count = Number(e.target.value);
+                      const ages = form.childrenAges
+                        ? form.childrenAges.split(",").map((age) => age.trim())
+                        : [];
+
+                      setForm({
+                        ...form,
+                        childrenCount: count,
+                        childrenAges: ages.slice(0, count).join(", "),
+                      });
+                    }}
+                  >
+                    <option value={0}>Nessun bambino</option>
+                    <option value={1}>1 bambino</option>
+                    <option value={2}>2 bambini</option>
+                    <option value={3}>3 bambini</option>
+                    <option value={4}>4 bambini</option>
+                  </select>
+
+                  {Array.from({ length: Number(form.childrenCount || 0) }).map((_, index) => {
+                    const ages = form.childrenAges
+                      ? form.childrenAges.split(",").map((age) => age.trim())
+                      : [];
+
+                    return (
+                      <input
+                        key={index}
+                        type="number"
+                        min="0"
+                        max="17"
+                        placeholder={`Età bambino ${index + 1}`}
+                        value={ages[index] ?? ""}
+                        onChange={(e) => updateChildAge(index, e.target.value)}
+                      />
+                    );
+                  })}
+                </>
+              )}
+
+              <label>Allergie o intolleranze</label>
+              <textarea
+                value={form.allergies}
+                onChange={(e) =>
+                  setForm({ ...form, allergies: e.target.value })
+                }
+              />
+
+              <label>Messaggio agli sposi</label>
+              <textarea
+                value={form.message}
+                onChange={(e) =>
+                  setForm({ ...form, message: e.target.value })
+                }
+              />
+
+              <button type="submit">
+                Invia conferma
+              </button>
+
+            </form>
+          )}
+
+          {saved && (
+            <div className="success">
+              Risposta salvata correttamente.
+            </div>
+          )}
 
           <button
             type="button"
-            onClick={() => {
-              setForm({
-                status: guest.status,
-                additionalGuests: guest.additionalGuests || 0,
-                allergies: guest.allergies || "",
-                message: guest.message || "",
-              });
-
-              setEditing(true);
-            }}
+            className="gift-button"
+            onClick={() => setShowGift(true)}
           >
-            Modifica risposta
+            ❀ Un pensiero per gli sposi ❀
           </button>
-
         </div>
-      ) : (
-        <form onSubmit={submit} className="rsvp-form">
+      </section>
 
-          <label>Partecipazione</label>
-          <select
-            value={form.status}
-            onChange={(e) => setForm({ ...form, status: e.target.value })}
-          >
-            <option value="CONFERMATO">Parteciperò</option>
-            <option value="RIFIUTATO">Non potrò partecipare</option>
-          </select>
+      {showGift && (
+        <div className="modal-overlay">
+          <div className="gift-modal">
 
-          <label>Porti qualcuno? Faccelo sapere:</label>
-         <select
-  value={form.additionalGuests}
-  onChange={(e) =>
-    setForm({
-      ...form,
-      additionalGuests: Number(e.target.value),
-    })
-  }
->
-  <option value={0}>Verrò da solo/a</option>
-  <option value={1}>Porterò 1 ospite</option>
-  <option value={2}>Porterò 2 ospiti</option>
-  <option value={3}>Porterò 3 ospiti</option>
-  <option value={4}>Porterò 4 ospiti</option>
-</select>
+            <button
+              type="button"
+              className="close-button"
+              onClick={() => setShowGift(false)}
+            >
+              ×
+            </button>
 
-          <label>Allergie o intolleranze</label>
-          <textarea
-            value={form.allergies}
-            onChange={(e) =>
-              setForm({ ...form, allergies: e.target.value })
-            }
-          />
+            <h2>❀</h2>
 
-          <label>Messaggio agli sposi</label>
-          <textarea
-            value={form.message}
-            onChange={(e) =>
-              setForm({ ...form, message: e.target.value })
-            }
-          />
+            <p>
+              La vostra presenza, sarà per noi la gioia più grande.
+              Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ♡
+            </p>
 
-          <button type="submit">
-            Invia conferma
-          </button>
+            <div className="iban-box">
+              <div className="iban-label">IBAN</div>
 
-        </form>
-      )}
+              <div className="iban-value">
+                IT63C0366901600474478451042
+              </div>
 
-            {saved && (
-        <div className="success">
-          Risposta salvata correttamente.
+              <div className="iban-label">
+                Intestato a:
+              </div>
+
+              <div className="beneficiary">
+                Martina Fornara
+                <br />
+                &
+                <br />
+                Riccardo Marzolini
+              </div>
+
+              <button
+                type="button"
+                className="iban-copy-btn "
+                onClick={() =>
+                  navigator.clipboard.writeText(
+                    "IT63C0366901600474478451042"
+                  )
+                }
+              >
+                Copia IBAN
+              </button>
+            </div>
+
+          </div>
         </div>
       )}
 
-      <button
-        type="button"
-        className="gift-button"
-        onClick={() => setShowGift(true)}
-      >
-        ❀ Un pensiero per gli sposi ❀
-      </button>
-</div>
-    </section>
-
-    {showGift && (
-      <div className="modal-overlay">
-        <div className="gift-modal">
-
+      {showPhoto && (
+        <div
+          className="photo-overlay"
+          onClick={() => setShowPhoto(false)}
+        >
           <button
-            type="button"
-            className="close-button"
-            onClick={() => setShowGift(false)}
+            className="photo-close"
+            onClick={() => setShowPhoto(false)}
           >
             ×
           </button>
 
-          <h2>❀</h2>
-
-          <p>
-            La vostra presenza, sarà per noi la gioia più grande.
-            Se desiderate accompagnarci con un pensiero, potrete contribuire ai nostri progetti futuri ♡
-          </p>
-
-<div className="iban-box">
-  <div className="iban-label">IBAN</div>
-
-  <div className="iban-value">
-    IT63C0366901600474478451042
-  </div>
-
-  <div className="iban-label">
-    Intestato a:
-  </div>
-
-  <div className="beneficiary">
-    Martina Fornara
-    <br />
-    &
-    <br />
-    Riccardo Marzolini
-  </div>
-
-  <button
-    type="button"
-    className="iban-copy-btn "
-    onClick={() =>
-      navigator.clipboard.writeText(
-        "IT63C0366901600474478451042"
-      )
-    }
-  >
-    Copia IBAN
-  </button>
-</div>
-
+          <img
+            src={headerImage}
+            alt="Martina e Riccardo"
+            className="photo-full"
+          />
         </div>
-      </div>
-    )}
+      )}
 
-    {showPhoto && (
-  <div
-    className="photo-overlay"
-    onClick={() => setShowPhoto(false)}
-  >
-    <button
-      className="photo-close"
-      onClick={() => setShowPhoto(false)}
-    >
-      ×
-    </button>
-
-    <img
-      src={headerImage}
-      alt="Martina e Riccardo"
-      className="photo-full"
-    />
-  </div>
-)}
-
-  </main>
-);
+    </main>
+  );
 }

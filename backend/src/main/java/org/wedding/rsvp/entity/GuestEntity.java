@@ -31,8 +31,14 @@ public class GuestEntity {
     @Column(nullable = false)
     private RsvpStatus status;
 
-    @Column(name="number_of_people")
-    private Integer additionalGuests;
+    @Column(name = "additional_adults")
+    private Integer additionalAdults;
+
+    @Column(name = "children_count")
+    private Integer childrenCount;
+
+    @Column(name = "children_ages", length = 255)
+    private String childrenAges;
 
     @Column(length = 1000)
     private String allergies;
@@ -61,12 +67,16 @@ public class GuestEntity {
             this.status = RsvpStatus.IN_ATTESA;
         }
 
-        if (this.additionalGuests == null) {
-            this.additionalGuests = 0;
-        }
-
         if (this.whatsappSent == null) {
             this.whatsappSent = false;
+        }
+
+        if (this.additionalAdults == null) {
+            this.additionalAdults = 0;
+        }
+
+        if (this.childrenCount == null) {
+            this.childrenCount = 0;
         }
     }
 }

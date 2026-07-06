@@ -43,23 +43,39 @@ public class GuestPdfService {
             title.setSpacingAfter(20);
             document.add(title);
 
-            PdfPTable table = new PdfPTable(6);
+            PdfPTable table = new PdfPTable(9);
             table.setWidthPercentage(100);
-            table.setWidths(new float[]{2, 2, 2, 1, 2, 2});
+            table.setWidths(new float[]{2, 2, 2, 1, 1, 1, 1, 2, 2});
 
             addHeader(table, "Nome");
             addHeader(table, "Cognome");
             addHeader(table, "Stato");
-            addHeader(table, "Persone aggiuntive");
+            addHeader(table, "Adulti aggiuntivi");
+            addHeader(table, "Bambini aggiuntivi");
+            addHeader(table, "Età bambini");
+            addHeader(table, "Totale persone");
             addHeader(table, "Allergie");
             addHeader(table, "Messaggio");
 
 
             for (GuestEntity guest : guests) {
+                int additionalAdults = guest.getAdditionalAdults() != null
+                        ? guest.getAdditionalAdults()
+                        : 0;
+
+                int childrenCount = guest.getChildrenCount() != null
+                        ? guest.getChildrenCount()
+                        : 0;
+
+                int totalPeople = additionalAdults + childrenCount + 1;
+
                 table.addCell(value(guest.getName()));
                 table.addCell(value(guest.getSurname()));
                 table.addCell(guest.getStatus() != null ? guest.getStatus().name() : "");
-                table.addCell(guest.getAdditionalGuests() != null ? guest.getAdditionalGuests().toString() : "1");
+                table.addCell(String.valueOf(additionalAdults));
+                table.addCell(String.valueOf(childrenCount));
+                table.addCell(guest.getChildrenAges() != null ? guest.getChildrenAges() : "-");
+                table.addCell(String.valueOf(totalPeople));
                 table.addCell(guest.getAllergies());
                 table.addCell(guest.getMessage());
             }

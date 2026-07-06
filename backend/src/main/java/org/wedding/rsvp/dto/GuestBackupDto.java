@@ -18,7 +18,9 @@ public class GuestBackupDto {
     private Boolean whatsappSent;
     private LocalDateTime whatsappSentAt;
     private RsvpStatus status;
-    private Integer additionalGuests;
+    private Integer additionalAdults;
+    private Integer childrenCount;
+    private String childrenAges;
     private String allergies;
     private String message;
     private LocalDateTime repliedAt;
